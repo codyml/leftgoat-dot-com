@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f9c5aad830fe63afc5720a9f726b0e2",
-    "content-hash": "da7bb80a98d5dfc5d7237220c09df13d",
+    "hash": "472eae1e2e222c2f8d4e4fd7d8ea7778",
+    "content-hash": "e7ef85a22858e2a8f719b06c34780bda",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1600,6 +1600,9 @@
                 "reference": null,
                 "shasum": null
             },
+            "require": {
+                "wordpress": "*"
+            },
             "type": "wordpress-theme"
         },
         {
@@ -1622,13 +1625,57 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/",
             "time": "2016-10-02 23:31:29"
+        },
+        {
+            "name": "wpackagist-plugin/amazon-s3-and-cloudfront",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/amazon-s3-and-cloudfront/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/amazon-s3-and-cloudfront.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/amazon-s3-and-cloudfront/",
+            "time": "2016-09-29 13:22:58"
+        },
+        {
+            "name": "wpackagist-plugin/amazon-web-services",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/amazon-web-services/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/amazon-web-services/",
+            "time": "2016-09-29 13:15:49"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wpackagist-plugin/advanced-custom-fields": 20
+        "wpackagist-plugin/advanced-custom-fields": 20,
+        "wpackagist-plugin/amazon-s3-and-cloudfront": 20,
+        "wpackagist-plugin/amazon-web-services": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

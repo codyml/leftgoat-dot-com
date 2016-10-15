@@ -22,8 +22,8 @@ $wp core install \
     --admin_email="cody@leftgoat.com" \
     --skip-email
 
-echo "Activating Advanced Custom Fields..."
-$wp plugin activate advanced-custom-fields
+echo "Activating Advanced Custom Fields and Amazon S3 offloading..."
+$wp plugin activate --all
 
 echo "Activating JSON theme..."
 $wp theme activate wp-json

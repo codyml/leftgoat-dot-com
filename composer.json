@@ -35,7 +35,9 @@
         "wordpress": "*",
         "wp-json": "*",
         "wp-cli/wp-cli": "~0.22",
-        "wpackagist-plugin/advanced-custom-fields": "dev-trunk"
+        "wpackagist-plugin/advanced-custom-fields": "dev-trunk",
+        "wpackagist-plugin/amazon-s3-and-cloudfront": "dev-trunk",
+        "wpackagist-plugin/amazon-web-services": "dev-trunk"
     },
     "extra": {
         "installer-paths": {

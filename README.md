@@ -11,8 +11,6 @@ To start a new project, make sure you have all the required dependencies (what m
 ---
 
 Next Steps:
-- Finishing cleaning up new project setup, making sure Vagrant works.
-- Revamp WordPress API access to serve WP Pages with [Advanced Custom Fields](https://www.advancedcustomfields.com), and write a custom JSON-serving theme to support it.
 - Enable file uploads and SSL.
 - Set server to handle assets correctly, plus include webpack for assets.
 
