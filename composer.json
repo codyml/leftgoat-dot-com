@@ -1,0 +1,46 @@
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress",
+                "version": "4.6.1",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/WordPress/WordPress/archive/4.6.1.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-json",
+                "version": "0.1",
+                "type": "wordpress-theme",
+                "dist": {
+                    "type": "path",
+                    "url": "install/wp-json"
+                },
+                "require": {
+                    "wordpress": "*"
+                }
+            }
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        } 
+    ],
+    "require": {
+        "wordpress": "*",
+        "wp-json": "*",
+        "wp-cli/wp-cli": "~0.22",
+        "wpackagist-plugin/advanced-custom-fields": "dev-trunk"
+    },
+    "extra": {
+        "installer-paths": {
+            "vendor/wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "vendor/wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}

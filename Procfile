@@ -1,0 +1,1 @@
+web: ./install/heroku/run.sh
