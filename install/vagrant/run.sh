@@ -11,5 +11,5 @@ cd /app
 install/install-wp.sh
 
 # run node
-sudo node main.js > /dev/null &
+NODE_ENV='local' sudo node main.js > /dev/null &
 echo "Started Node!"

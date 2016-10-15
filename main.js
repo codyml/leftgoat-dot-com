@@ -21,6 +21,18 @@ const SERVER_PORT = process.env.PORT || 80;
 //  Create server
 const app = express();
 
+//  Enforce HTTPS if on production server
+app.set('trust proxy');
+if (process.env.NODE_ENV === 'production') app.use((req, res, next) => {
+
+    if (req.protocol === 'http') {
+
+        res.redirect(`https://${req.hostname}${req.url}`);
+
+    } else next();
+
+});
+
 //	Set Pug as the view engine
 app.set('view engine', 'pug');
 
