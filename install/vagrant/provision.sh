@@ -31,7 +31,7 @@ echo "GRANT ALL ON wordpress.* TO 'wp-username'@'localhost'" | mysql -u root
 echo "FLUSH PRIVILEGES" | mysql -u root
 
 # install and configure php
-apt-get install -y php-fpm php-mysql php-zip
+apt-get install -y php-fpm php-mysql php-zip php-curl
 cp -f install/vagrant/php.ini /etc/php/7.0/fpm/php.ini
 service php7.0-fpm restart
 
