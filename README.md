@@ -6,13 +6,9 @@ This is a project I'm working on to facilitate building powerful Node.js-served 
 
 ---
 
-To start a new project, make sure you have all the required dependencies (what might they be?) and run ```./init.sh short-heroku-name 'Full Site Name'```.  If you'd like to add plugins, include them in composer.json and run ```composer update```, then add a line to install them using WP-CLI in install/install-wp.sh.
+To start a new project, make sure you have all the required dependencies (what might they be?) and run ```./init.sh short-heroku-name 'Full Site Name'```.  If necessary, set up an S3 bucket and register it in the WordPress admin panel, and set up automatic deploys in GitHub.
 
 ---
-
-Next Steps:
-- Enable file uploads and SSL.
-- Set server to handle assets correctly, plus include webpack for assets.
 
 Coming Eventually:
 - Include testing software.

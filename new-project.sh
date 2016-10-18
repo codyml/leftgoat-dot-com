@@ -28,6 +28,10 @@ then
 	exit 1
 fi
 
+# Start a new branch for the site
+git branch -m core-upstream
+git checkout -b master
+
 # Save long name
 echo "SITE_NAME=\"$2\"" > site-name.txt || { echo "There was an error!"; exit 1; }
 
