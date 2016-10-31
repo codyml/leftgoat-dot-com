@@ -16,7 +16,6 @@ const request = require('request-promise-native');
 
 //  WP access
 const WP_PORT = '8000';
-const WP_API_PATH = '/';
 
 //  Creates middleware
 const adminRouter = express.Router();
@@ -63,12 +62,12 @@ adminRouter.all('/wp-signup.php', handleWP);
 adminRouter.all('/wp-trackback.php', handleWP);
 
 //  Performs JSON requests to REST API
-function contentRequest(slugName) {
+function contentRequest(slug) {
 
     const options = {
 
         method: 'get',
-        url: `http://localhost:${WP_PORT}${WP_API_PATH}${slugName}`,
+        url: `http://localhost:${WP_PORT}/${slug}`,
 
     };
 

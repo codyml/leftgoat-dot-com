@@ -29,7 +29,8 @@ then
 fi
 
 # Start a new branch for the site
-git branch -m core-upstream
+git branch -m core
+git remote rename origin core
 git checkout -b master
 
 # Save long name
