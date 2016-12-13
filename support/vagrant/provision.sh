@@ -54,7 +54,7 @@ sudo apt-get install -y nodejs
 #   Installs NPM dependencies
 echo -e "\n>>> Installing NPM dependencies..."
 npm install
-npm install -g nodemon
+sudo npm install -g nodemon
 
 #   Installs and configures nginx
 echo -e "\n>>> Installing and configuring nginx..."
