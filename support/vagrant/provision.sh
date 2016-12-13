@@ -45,6 +45,7 @@ cd vendor/wordpress
 $wp core install --url="localhost" --title="$FULL_NAME" --admin_user="$WP_ADMIN_USERNAME" --admin_password="$WP_ADMIN_PASSWORD" --admin_email="cody@leftgoat.com" --skip-email
 $wp plugin activate --all
 $wp theme activate wp-json
+$wp rewrite structure "/%postname%/"
 cd /app
 
 #   Installs Node.js
