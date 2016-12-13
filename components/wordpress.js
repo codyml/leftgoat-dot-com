@@ -73,20 +73,25 @@ function contentRequest(slug, res) {
 
         request(options).then(response => {
 
-            const decodedResponse = JSON.parse(response)
-            cache.put(slug, decodedResponse)
-            resolve(decodedResponse)
+            try {
 
-        }, (error) => {
+                const decodedResponse = JSON.parse(response)
+                cache.put(slug, decodedResponse)
+                resolve(decodedResponse)
 
-            console.error(error)
-            res.status(500).render('500')
+            } catch(error) { wordpressError(error) }
 
-        })
+        }, wordpressError)
 
     })
 
 };
+
+//  Prints error to the console and renders 500 page
+function wordpressError(error) {
+    console.error(error)
+    res.status(500).render('500')
+}
 
 //  Exports
 module.exports.admin = adminRouter;
