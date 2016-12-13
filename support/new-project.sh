@@ -45,6 +45,7 @@ heroku buildpacks:add --index 2 heroku/nodejs
 
 # Add add-ons
 heroku addons:create --as "wp_database" jawsdb:kitefin
+heroku config:get WP_DATABASE_URL -s >> .env
 
 # Push to Heroku
 git checkout -b master
