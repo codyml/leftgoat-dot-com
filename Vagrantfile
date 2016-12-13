@@ -67,6 +67,5 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", privileged: false, path: "./support/vagrant/provision.sh"
-  config.vm.provision "shell", run: "always", inline: "cd /app; sudo nohup nodemon >> local.log 2>&1 &"
   
 end

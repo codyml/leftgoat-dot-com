@@ -20,7 +20,7 @@ const publicRouter = express.Router();
 publicRouter.get('/sample', sampleHandler);
 
 //  Routes to sample page
-publicRouter.get('/', (req, res) => res.redirect('/sample'));
+publicRouter.get('/', (req, res) => { res.redirect('/sample') });
 
 //  Exports
 module.exports = publicRouter;

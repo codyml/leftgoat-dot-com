@@ -18,8 +18,13 @@
  * @package WordPress
  */
 
-$db_url = getenv('WP_DATABASE_URL') ?: 'http://local:local@localhost:3306/wordpress';
-$parsed_db_url = parse_url($db_url);
+if (getenv('NODE_ENV') !== 'production') {
+    require __DIR__ . '/../autoload.php';
+    $dotenv = new Dotenv\Dotenv('/app');
+    $dotenv->load();
+}
+
+$parsed_db_url = parse_url(getenv('WP_DATABASE_URL'));
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -47,6 +52,10 @@ if (isset($_SERVER['HTTP_HOST'])) {
     define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
 }
 
+/** Adds AWS credentials. */
+define('DBI_AWS_ACCESS_KEY_ID', getenv('AWS_ACCESS_KEY_ID'));
+define('DBI_AWS_SECRET_ACCESS_KEY', getenv('AWS_SECRET_ACCESS_KEY'));
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -56,14 +65,14 @@ if (isset($_SERVER['HTTP_HOST'])) {
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'p~4DgpVW_m,r6VAz+Ucu^?%yZ5zqn6wXCEV,,u-8`%mFzw6{*$ogknCChuo;>c/.');
-define('SECURE_AUTH_KEY',  ']*mDy_O!pN{>i`o,v!s1x7DSO`R]ugO43|S.<r;-P{.&$>r3gL1K)lS)_LF<C-[$');
-define('LOGGED_IN_KEY',    'P`P_tw@f5**y*o!<D!B)h&Pg}XG/cq+-1#}5bJKx#DQuV2/Pt/x3mNcYdj;SSN1`');
-define('NONCE_KEY',        '$RhdoNv.Y)+.ut+[vR!jc5344&b`{nQSK#vZGvKar+49@FYAcmA.;XNxG__2aAWi');
-define('AUTH_SALT',        'G(M+p]EjK]Dg[%+j/^v>AF!39z*{-|)48?gCOB{2Q{mACb6IY `b*vD|V3}iF!pt');
-define('SECURE_AUTH_SALT', '[U>(Fj5?;{{1+I,?iUOiSjcZ,S?yzKlqD7l/FS8syl+<6XySG:m-|B-JfQ<(#tHd');
-define('LOGGED_IN_SALT',   'GR{02_nA[MaY9+.h1:aQfBj3 `- 41Nx<]hAkaf^xcPPV$OzQ7uCe~0us?&N)k?1');
-define('NONCE_SALT',       'jLeth8ad@w<Oq. O1ms|}BLyYhPY_yepsoO[^N*^26a0g*tq-XCvS<-MiN_$V@9^');
+define('AUTH_KEY', getenv('WP_AUTH_KEY'));
+define('SECURE_AUTH_KEY', getenv('WP_SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY', getenv('WP_LOGGED_IN_KEY'));
+define('NONCE_KEY', getenv('WP_NONCE_KEY'));
+define('AUTH_SALT', getenv('WP_AUTH_SALT'));
+define('SECURE_AUTH_SALT', getenv('WP_SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT', getenv('WP_LOGGED_IN_SALT'));
+define('NONCE_SALT', getenv('WP_NONCE_SALT'));
 
 /**#@-*/
 
@@ -87,7 +96,7 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* That's all, stop editing! Happy blogging. */
 

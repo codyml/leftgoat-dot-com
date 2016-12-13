@@ -6,6 +6,19 @@
 
 set -e
 cd /app
+
+#   Creates various random strings for WordPress
+sudo apt-get install -y pwgen
+echo "WP_ADMIN_USERNAME=\"$(pwgen -s 16 1)\"" >> .env
+echo "WP_ADMIN_PASSWORD=\"$(pwgen -s 16 1)\"" >> .env
+echo "WP_AUTH_KEY=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_SECURE_AUTH_KEY=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_LOGGED_IN_KEY=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_NONCE_KEY=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_AUTH_SALT=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_SECURE_AUTH_SALT=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_LOGGED_IN_SALT=\"$(pwgen -s 64 1)\"" >> .env
+echo "WP_NONCE_SALT=\"$(pwgen -s 64 1)\"" >> .env
 source .env
 
 #   Adds repositories and updates cache
@@ -24,6 +37,8 @@ echo "CREATE USER 'local'@'localhost' IDENTIFIED BY 'local'" | mysql -u root
 echo "CREATE DATABASE wordpress" | mysql -u root 
 echo "GRANT ALL ON wordpress.* TO 'local'@'localhost'" | mysql -u root
 echo "FLUSH PRIVILEGES" | mysql -u root
+WP_DATABASE_URL="mysql://local:local@localhost:3306/wordpress"
+echo "WP_DATABASE_URL=\"$WP_DATABASE_URL\"" >> .env
 
 #   Installs PHP
 echo -e "\n>>> Installing PHP 7.1..."
@@ -37,6 +52,7 @@ sudo mv composer.phar /usr/local/bin/composer
 #   Installs Composer dependencies
 echo -e "\n>>> Installing Composer dependencies..."
 composer install --prefer-dist
+chmod -R 777 vendor/wordpress
 
 #   Sets up local WordPress installation
 echo -e "\n>>> Setting up local WordPress database..."
@@ -55,7 +71,6 @@ sudo apt-get install -y nodejs
 #   Installs NPM dependencies
 echo -e "\n>>> Installing NPM dependencies..."
 npm install
-sudo npm install -g nodemon
 
 #   Installs and configures nginx
 echo -e "\n>>> Installing and configuring nginx..."

@@ -48,5 +48,8 @@
     },
     "scripts": {
         "post-install-cmd": "cp -f support/wordpress/wp-config.php vendor/wordpress/wp-config.php"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^2.4"
     }
 }
