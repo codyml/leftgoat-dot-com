@@ -65,8 +65,8 @@ cat <<EOF
 >   - Modify ./db.sh with remote database credentials, then use
 >     the script to save your local database values and upload them
 >     to the remote database.
->   - Set up a GitHub repository for this project with a Heroku
->     deply hook, and push to it.
+>   - Push your code to Heroku, either with the Heroku CLI or by
+>     setting up a GitHub hook.
 >
 >   That's it!
 >
