@@ -13,7 +13,7 @@
 //  Requires
 const express = require('express');
 const compression = require('compression');
-const wordpressAdmin = require('./components/wordpress.js').admin;
+const wordpress = require('./components/wordpress.js');
 const routes = require('./components/routes.js')
 
 //  Set the Promise API to throw errors in all cases
@@ -35,7 +35,10 @@ app.use(compression());
 app.set('view engine', 'pug');
 
 //  Handle WordPress admin requests
-app.use(wordpressAdmin);
+app.use(wordpress.admin);
+
+//  Intercepts requests, for error handling
+app.use(wordpress.intercept)
 
 //  Handle public requests
 app.use(routes);

@@ -15,7 +15,7 @@ const slug = 'sample-page'
 module.exports = (req, res) => {
 
     //  Fetches post and renders page
-    contentRequest('sample-page', res).then(response => {
+    contentRequest('sample-page').then(response => {
 
         res.render('sample-page', response['sample-page'])
 

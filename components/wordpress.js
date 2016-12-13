@@ -57,7 +57,7 @@ function handleWP(req, res) {
 adminRouter.all('/wp-*', handleWP);
 
 //  Performs JSON requests to REST API
-function contentRequest(slug, res) {
+function contentRequest(slug) {
 
     const hit = cache.get(slug)
 
@@ -87,12 +87,24 @@ function contentRequest(slug, res) {
 
 };
 
+//  Intercepts all requests, in case one fails and must be ended
+let mostRecentRequest = null
+function interceptRequest(req, res, next) { mostRecentRequest = res }
+
 //  Prints error to the console and renders 500 page
 function wordpressError(error) {
+
     console.error(error)
-    res.status(500).render('500')
+    if (mostRecentRequest) {
+
+        mostRecentRequest.status(500).render('500')
+        mostRecentRequest = null
+
+    }
+
 }
 
 //  Exports
+module.exports.intercept = interceptRequest;
 module.exports.admin = adminRouter;
 module.exports.contentRequest = contentRequest;
