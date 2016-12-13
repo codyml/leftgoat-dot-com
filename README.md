@@ -10,6 +10,9 @@ To start a new project, make sure you have all the required dependencies (what m
 
 ---
 
+Current Limitations:
+- S3 image offload doesn't work for images inlined in post body content.
+
 Coming Eventually:
 - Include testing software.
 - Research behavior when bandwidth and database limits are reached.
