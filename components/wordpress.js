@@ -79,7 +79,7 @@ function contentRequest(slug) {
                 cache.put(slug, decodedResponse)
                 resolve(decodedResponse)
 
-            } catch(error) { wordpressError(error) }
+            } catch(error) { wordpressError(); reject(error) }
 
         }, wordpressError)
 
@@ -94,7 +94,7 @@ function interceptRequest(req, res, next) { mostRecentRequest = res; next() }
 //  Prints error to the console and renders 500 page
 function wordpressError(error) {
 
-    console.error(error)
+    if (error) console.error(error)
     if (mostRecentRequest) {
 
         mostRecentRequest.status(500).render('500')
