@@ -18,25 +18,21 @@
  * @package WordPress
  */
 
-/** For the Vagrant box */
-if (!getenv('WP_DATABASE_URL')) {
-	putenv('WP_DATABASE_URL=http://wp-username:wp-password@localhost:9000/wordpress');
-}
-
-$dbsettings = parse_url(getenv('WP_DATABASE_URL'));
+$db_url = getenv('WP_DATABASE_URL') ?: 'http://local:local@localhost:3306/wordpress';
+$parsed_db_url = parse_url($db_url);
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', trim($dbsettings['path'], '/'));
+define('DB_NAME', trim($parsed_db_url['path'], '/'));
 
 /** MySQL database username */
-define('DB_USER', $dbsettings['user']);
+define('DB_USER', $parsed_db_url['user']);
 
 /** MySQL database password */
-define('DB_PASSWORD', $dbsettings['pass']);
+define('DB_PASSWORD', $parsed_db_url['pass']);
 
 /** MySQL hostname */
-define('DB_HOST', $dbsettings['host']);
+define('DB_HOST', $parsed_db_url['host']);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

@@ -27,7 +27,8 @@ Vagrant.configure("2") do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.0.254"
-  config.vm.hostname = "local.dev"
+  load '.env'
+  config.vm.hostname = "#{SHORT_NAME}.dev"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -65,7 +66,7 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "./install/vagrant/provision.sh"
-  config.vm.provision "shell", run: "always", privileged: false, path: "./install/vagrant/run.sh"
+  config.vm.provision "shell", privileged: false, path: "./support/vagrant/provision.sh"
+  config.vm.provision "shell", run: "always", inline: "cd /app; sudo nohup nodemon >> local.log 2>&1 &"
   
 end

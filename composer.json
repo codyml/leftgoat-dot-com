@@ -19,7 +19,7 @@
                 "type": "wordpress-theme",
                 "dist": {
                     "type": "path",
-                    "url": "install/wp-json"
+                    "url": "support/wordpress/wp-json"
                 },
                 "require": {
                     "wordpress": "*"
@@ -32,6 +32,7 @@
         } 
     ],
     "require": {
+        "php": "~7.1",
         "wordpress": "*",
         "wp-json": "*",
         "wp-cli/wp-cli": "~0.22",
@@ -44,5 +45,8 @@
             "vendor/wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
             "vendor/wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
+    },
+    "scripts": {
+        "post-install-cmd": "cp -f support/wordpress/wp-config.php vendor/wordpress/wp-config.php"
     }
 }
