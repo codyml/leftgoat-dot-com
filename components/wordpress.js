@@ -89,7 +89,7 @@ function contentRequest(slug) {
 
 //  Intercepts all requests, in case one fails and must be ended
 let mostRecentRequest = null
-function interceptRequest(req, res, next) { mostRecentRequest = res }
+function interceptRequest(req, res, next) { mostRecentRequest = res; next() }
 
 //  Prints error to the console and renders 500 page
 function wordpressError(error) {
