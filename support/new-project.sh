@@ -25,7 +25,6 @@ echo "FULL_NAME=\"$FULL_NAME\"" >> .env
 
 #   Starts Vagrant box
 echo -e "\nSetting up local installation..."
-vagrant destroy -f
 vagrant up
 
 #   Creates new Heroku app with buildpacks and addons
@@ -36,17 +35,20 @@ heroku buildpacks:add --index 2 heroku/nodejs
 heroku addons:create --as "wp_database" jawsdb:kitefin
 echo "REMOTE_DB_URL=\"$(heroku config:get WP_DATABASE_URL)\"" >> .env
 
+#   Saves WordPress salts as Heroku environmental variables
+echo -e "\nSaving WordPress salts..."
+source .env
+heroku config:set WP_AUTH_KEY=$WP_AUTH_KEY WP_SECURE_AUTH_KEY=$WP_SECURE_AUTH_KEY WP_LOGGED_IN_KEY=$WP_LOGGED_IN_KEY WP_NONCE_KEY=$WP_NONCE_KEY WP_AUTH_SALT=$WP_AUTH_SALT WP_SECURE_AUTH_SALT=$WP_SECURE_AUTH_SALT WP_LOGGED_IN_SALT=$WP_LOGGED_IN_SALT WP_NONCE_SALT=$WP_NONCE_SALT 
+
 #   Requests AWS credentials and saves them as environment
 #   variables, locally and on Heroku
 echo -e "\nSaving AWS credentials..."
 echo "Enter your AWS Access Key ID:"
 read AWS_ACCESS_KEY_ID
-echo "AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> .env
-heroku config:set AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 echo "Enter your AWS Secret Access Key:"
 read AWS_SECRET_ACCESS_KEY
-echo "AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> .env
-heroku config:set AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+echo -e "AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"\nAWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> .env
+heroku config:set AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 #   Copies database upload/download resources
 echo -e "\nCreating database manipulation script (./db.sh)..."
