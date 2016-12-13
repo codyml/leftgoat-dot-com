@@ -1,3 +1,4 @@
 Vagrantfile
 install/vagrant
+new-project.sh
 README.md

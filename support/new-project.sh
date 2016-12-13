@@ -36,17 +36,15 @@ echo "WP_ADMIN_PASSWORD=\"$WP_ADMIN_PASSWORD\"" >> .env
 vagrant destroy -f
 vagrant up
 
-# # Create new app
-# heroku apps:create "$1" || { echo "There was an error!"; exit 1; }
+# Create new app
+heroku apps:create "$SHORT_NAME"
 
-# # Add buildpacks
-# heroku buildpacks:add --index 1 heroku/php || { echo "There was an error!"; exit 1; }
-# heroku buildpacks:add --index 2 heroku/nodejs || { echo "There was an error!"; exit 1; }
+# Add buildpacks
+heroku buildpacks:add --index 1 heroku/php
+heroku buildpacks:add --index 2 heroku/nodejs
 
-# # Add add-ons
-# heroku addons:create --as "wp_database" jawsdb:kitefin || { echo "There was an error!"; exit 1; }
+# Add add-ons
+heroku addons:create --as "wp_database" jawsdb:kitefin
 
-# # Push to Heroku
-# git add site-name.txt || { echo "There was an error!"; exit 1; }
-# git commit -m "Recorded site name." || { echo "There was an error!"; exit 1; }
-# git push heroku master || { echo "There was an error!"; exit 1; }
+# Push to Heroku
+git push heroku master
