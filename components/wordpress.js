@@ -57,7 +57,7 @@ function handleWP(req, res) {
 adminRouter.all('/wp-*', handleWP);
 
 //  Performs JSON requests to REST API
-function contentRequest(slug) {
+function contentRequest(slug, res) {
 
     const hit = cache.get(slug)
 
@@ -71,13 +71,19 @@ function contentRequest(slug) {
 
         };
 
-        resolve(request(options).then(response => {
+        request(options).then(response => {
 
             const decodedResponse = JSON.parse(response)
             cache.put(slug, decodedResponse)
-            return decodedResponse
+            resolve(decodedResponse)
 
-        }))
+        }, (error) => {
+
+            console.error(error)
+            res.status(500)
+            res.render('content-unavailable')
+
+        })
 
     })
 
