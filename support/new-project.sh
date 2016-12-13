@@ -22,8 +22,8 @@ echo "NODE_ENV=\"development\"" > .env
 echo -e "\nCreating site $FULL_NAME ($SHORT_NAME)\n----------------"
 
 #   Creates some random strings for setup
-WP_ADMIN_USERNAME="$(openssl rand -base64 18 | head -c 16)"
-WP_ADMIN_PASSWORD="$(openssl rand -base64 18 | head -c 16)"
+WP_ADMIN_USERNAME="$(openssl rand -hex 8)"
+WP_ADMIN_PASSWORD="$(openssl rand -hex 8)"
 echo "WordPress admin username: $WP_ADMIN_USERNAME"
 echo "WordPress admin password: $WP_ADMIN_PASSWORD"
 
