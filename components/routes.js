@@ -16,14 +16,11 @@ const sampleHandler = require('../views/sample-page.js');
 //  Creates middleware
 const publicRouter = express.Router();
 
-//  Routes static assets
-publicRouter.use('/static', express.static('static-dist'));
-
 //  Renders sample page
 publicRouter.get('/sample', sampleHandler);
 
 //  Routes to sample page
-publicRouter.get('/*', (req, res) => res.redirect('/sample'));
+publicRouter.get('/', (req, res) => res.redirect('/sample'));
 
 //  Exports
 module.exports = publicRouter;

@@ -22,7 +22,7 @@ bluebird.onPossiblyUnhandledRejection(function(error){
     throw error;
 });
 
-//  Set server to receive all HTTP traffic
+//  Set server to receive HTTP traffic from the outside world
 const SERVER_PORT = process.env.PORT || 80;
 
 //  Create server
@@ -41,7 +41,7 @@ app.use(wordpressAdmin);
 app.use(routes);
 
 //  Handle anything else
-app.all('*', (req, res) => { res.status(404).end(); });
+app.all('*', (req, res) => { res.status(404).render('404'); });
 
 //  Start server
 app.listen(SERVER_PORT, function () {

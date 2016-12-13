@@ -80,8 +80,7 @@ function contentRequest(slug, res) {
         }, (error) => {
 
             console.error(error)
-            res.status(500)
-            res.render('content-unavailable')
+            res.status(500).render('500')
 
         })
 
