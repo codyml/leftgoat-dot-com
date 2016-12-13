@@ -47,4 +47,5 @@ heroku buildpacks:add --index 2 heroku/nodejs
 heroku addons:create --as "wp_database" jawsdb:kitefin
 
 # Push to Heroku
+git checkout -b master
 git push heroku master
