@@ -18,7 +18,5 @@
     "request": "^2.75.0",
     "request-promise-native": "^1.0.3"
   },
-  "devDependencies": {
-    "normalize.css": "^5.0.0"
-  }
+  "devDependencies": {}
 }
