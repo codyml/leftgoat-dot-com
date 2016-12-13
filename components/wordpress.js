@@ -7,12 +7,18 @@
 *   
 */
 
-'use strict';
-
 //  Requires
 const express = require('express');
 const http = require('http');
 const request = require('request-promise-native');
+const cache = require('memory-cache');
+
+//  Cache expiration time
+const CACHE_EXPIRE = 2 /* days */
+    * 24 /* hours */
+    * 60 /* minutes */
+    * 60 /* seconds */
+    * 1000 /* milliseconds */
 
 //  WP access
 const WP_PORT = '8000';
@@ -42,36 +48,38 @@ function handleWP(req, res) {
 
     req.pipe(wpRequest);
 
+    //  Accessing the admin panel clears the cache
+    cache.clear()
+
 };
 
 //  Forwards WordPress admin requests to nginx
-adminRouter.all('/wp-admin*', handleWP);
-adminRouter.all('/wp-content*', handleWP);
-adminRouter.all('/wp-includes*', handleWP);
-adminRouter.all('/wp-activate.php', handleWP);
-adminRouter.all('/wp-blog-header.php', handleWP);
-adminRouter.all('/wp-comments-post.php', handleWP);
-adminRouter.all('/wp-config-sample.php', handleWP);
-adminRouter.all('/wp-cron.php', handleWP);
-adminRouter.all('/wp-links-opml.php', handleWP);
-adminRouter.all('/wp-load.php', handleWP);
-adminRouter.all('/wp-login.php', handleWP);
-adminRouter.all('/wp-mail.php', handleWP);
-adminRouter.all('/wp-settings.php', handleWP);
-adminRouter.all('/wp-signup.php', handleWP);
-adminRouter.all('/wp-trackback.php', handleWP);
+adminRouter.all('/wp-*', handleWP);
 
 //  Performs JSON requests to REST API
 function contentRequest(slug) {
 
-    const options = {
+    const hit = cache.get(slug)
 
-        method: 'get',
-        url: `http://localhost:${WP_PORT}/${slug}`,
+    if (hit) return Promise.resolve(hit)
+    else return new Promise((resolve, reject) => {
 
-    };
+        const options = {
 
-    return request(options);
+            method: 'get',
+            url: `http://localhost:${WP_PORT}/${slug}`,
+
+        };
+
+        resolve(request(options).then(response => {
+
+            const decodedResponse = JSON.parse(response)
+            cache.put(slug, decodedResponse)
+            return decodedResponse
+
+        }))
+
+    })
 
 };
 

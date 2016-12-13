@@ -2,16 +2,28 @@
 
 $response = Array();
 
-/*  Retrieves post title and if found, saves title and fields
-*   for request response.
+/*  Retrieves post(s) and returns their titles, contents and fields.
 */
-$title = single_post_title(null, false);
-if (isset($title)) {
+if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-    $response['title'] = $title;
-    $response['fields'] = get_fields();
+    //  Retrieves the post contents
+    $content = get_the_content();
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
 
-}
+    //  Retrieves other post info
+    $this_post = Array(
+        'title' => the_title(null, null, false),
+        'content' => $content,
+        'fields' => get_fields()
+    );
 
+
+    $response[$post->post_name] = $this_post;
+
+endwhile; endif;
+
+/*  Returns post(s) as JSON.
+*/
 header('Content-Type: application/json;charset=utf-8');
 echo json_encode($response);

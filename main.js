@@ -12,8 +12,15 @@
 
 //  Requires
 const express = require('express');
-const wordpressAdmin = require('./server-components/wordpress-router.js').admin;
-const publicRouter = require('./server-components/public-router.js');
+const compression = require('compression');
+const wordpressAdmin = require('./components/wordpress.js').admin;
+const routes = require('./components/routes.js')
+
+//  Set the Promise API to throw errors in all cases
+const bluebird = require('bluebird');
+bluebird.onPossiblyUnhandledRejection(function(error){
+    throw error;
+});
 
 //  Set server to receive all HTTP traffic
 const SERVER_PORT = process.env.PORT || 80;
@@ -21,28 +28,19 @@ const SERVER_PORT = process.env.PORT || 80;
 //  Create server
 const app = express();
 
-//  Enforce HTTPS if on production server
-// app.set('trust proxy', true);
-// if (process.env.NODE_ENV === 'production') app.use((req, res, next) => {
+//  Enable compression
+app.use(compression());
 
-//     if (req.protocol === 'http') {
-
-//         res.redirect(`https://${req.hostname}${req.url}`);
-
-//     } else next();
-
-// });
-
-//	Set Pug as the view engine
+//  Set Pug as the view engine
 app.set('view engine', 'pug');
 
 //  Handle WordPress admin requests
 app.use(wordpressAdmin);
 
-//	Handle public requests
-app.use(publicRouter);
+//  Handle public requests
+app.use(routes);
 
-//	Handle anything else
+//  Handle anything else
 app.all('*', (req, res) => { res.status(404).end(); });
 
 //  Start server

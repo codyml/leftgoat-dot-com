@@ -11,25 +11,19 @@
 
 //  Requires
 const express = require('express');
-const contentRequest = require('./wordpress-router.js').contentRequest;
+const sampleHandler = require('../views/sample-page.js');
 
 //  Creates middleware
 const publicRouter = express.Router();
 
-//  Routes to index page
-publicRouter.get('/', function(req, res) {
+//  Routes static assets
+publicRouter.use('/static', express.static('static-dist'));
 
-    contentRequest('sample-page').then((response) => {
-        
-        const page = JSON.parse(response);
+//  Renders sample page
+publicRouter.get('/sample', sampleHandler);
 
-        console.log('response: ', page);
-
-        res.render('index', { title: page.title });
-
-    });
-
-});
+//  Routes to sample page
+publicRouter.get('/*', (req, res) => res.redirect('/sample'));
 
 //  Exports
 module.exports = publicRouter;
