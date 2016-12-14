@@ -18,8 +18,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         'fields' => get_fields()
     );
 
-
-    $response[$post->post_name] = $this_post;
+    $js_safe_key = implode('_', explode('-', $post->post_name));
+    $response[$js_safe_key] = $this_post;
 
 endwhile; endif;
 
