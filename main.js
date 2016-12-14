@@ -11,7 +11,11 @@
 'use strict';
 
 //  Requires
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 const express = require('express');
+const enforce = require('express-sslify');
 const compression = require('compression');
 const wordpress = require('./components/wordpress.js');
 const routes = require('./components/routes.js')
@@ -22,11 +26,11 @@ bluebird.onPossiblyUnhandledRejection(function(error){
     throw error;
 });
 
-//  Set server to receive HTTP traffic from the outside world
-const SERVER_PORT = process.env.PORT || 80;
-
 //  Create server
 const app = express();
+
+//  Enforce SSL
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 //  Enable compression
 app.use(compression());
@@ -46,9 +50,22 @@ app.use(routes);
 //  Handle anything else
 app.all('*', (req, res) => { res.status(404).render('404'); });
 
-//  Start server
-app.listen(SERVER_PORT, function () {
+//  Accept all HTTP traffic from Heroku load balancers (includes HTTPS)
+if (app.get('env') === 'production') {
 
-    console.log(`Node server listening on port ${SERVER_PORT}!`);
+    app.listen(process.env.PORT, () => console.log(`Development Node server listening on port ${process.env.PORT}.`))
 
-});
+}
+
+//  Accept all HTTP and HTTPS traffic on dev environments
+else {
+
+    http.createServer(app).listen(80, () => console.log('Dev Node server listening on port 80.'))
+    https.createServer({
+
+        cert: fs.readFileSync('dev-ssl.cert'),
+        key: fs.readFileSync('dev-ssl.key'),
+
+    }, app).listen(443, () => console.log('Dev Node server listening on port 443.'))
+
+}

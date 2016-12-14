@@ -10,7 +10,6 @@
 //  Requires
 const express = require('express');
 const http = require('http');
-const request = require('request-promise-native');
 const cache = require('memory-cache');
 
 //  Cache expiration time
@@ -64,24 +63,34 @@ function contentRequest(slug) {
     if (hit) return Promise.resolve(hit)
     else return new Promise((resolve, reject) => {
 
-        const options = {
+        const wpContentRequest = http.request({
 
             method: 'get',
-            url: `http://localhost:${WP_PORT}/${slug}`,
+            port: WP_PORT,
+            path: `/${slug}/`,
 
-        };
+        }, response => {
 
-        request(options).then(response => {
+            let responseBody = ''
+            response.on('data', chunk => responseBody += chunk)
+            response.on('end', () => {
 
-            try {
+                try {
 
-                const decodedResponse = JSON.parse(response)
-                cache.put(slug, decodedResponse)
-                resolve(decodedResponse)
+                    const decodedResponse = JSON.parse(responseBody)
+                    cache.put(slug, decodedResponse)
+                    resolve(decodedResponse)
 
-            } catch(error) { wordpressError(); reject(error) }
+                } catch(error) {
 
-        }, wordpressError)
+                    wpError('Failed to decode response WordPress response (response and error attached).', responseBody, error)
+                    reject()
+
+                }
+
+            })
+
+        }).end()
 
     })
 
@@ -92,9 +101,9 @@ let mostRecentRequest = null
 function interceptRequest(req, res, next) { mostRecentRequest = res; next() }
 
 //  Prints error to the console and renders 500 page
-function wordpressError(error) {
+function wpError(text, response, error) {
 
-    if (error) console.error(error)
+    if (error) console.error(text, response, error)
     if (mostRecentRequest) {
 
         mostRecentRequest.status(500).render('500')

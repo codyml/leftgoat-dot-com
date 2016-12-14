@@ -5,3 +5,5 @@ vendor
 .env
 local.log
 /db.sh
+dev-ssl.cert
+dev-ssl.key

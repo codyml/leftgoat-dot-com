@@ -7,7 +7,13 @@
 set -e
 cd /app
 
-#   Creates various random strings for WordPress
+#   Adds repositories and updates cache
+echo -e "\n>>> Adding repositories and updating cache..."
+sudo add-apt-repository ppa:ondrej/php
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
+#   Creates various random strings for WordPress installation
+echo -e "\n>>> Creating various random strings for WordPress installation..."
 sudo apt-get install -y pwgen
 echo "WP_ADMIN_USERNAME=\"$(pwgen -s 16 1)\"" >> .env
 echo "WP_ADMIN_PASSWORD=\"$(pwgen -s 16 1)\"" >> .env
@@ -20,11 +26,6 @@ echo "WP_SECURE_AUTH_SALT=\"$(pwgen -s 64 1)\"" >> .env
 echo "WP_LOGGED_IN_SALT=\"$(pwgen -s 64 1)\"" >> .env
 echo "WP_NONCE_SALT=\"$(pwgen -s 64 1)\"" >> .env
 source .env
-
-#   Adds repositories and updates cache
-echo -e "\n>>> Adding repositories and updating cache..."
-sudo add-apt-repository ppa:ondrej/php
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 #   Installs MySQL
 echo -e "\n>>> Installing MySQL..."
@@ -79,5 +80,10 @@ sudo cp -f support/vagrant/nginx.conf /etc/nginx/sites-available/default
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
+
+#   Creates a self-signed certificate for SSL
+openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+    -subj "/C=XX/ST=XX/L=XX/O=XX/CN=${SHORT_NAME}.dev" \
+    -keyout dev-ssl.key -out dev-ssl.cert
 
 echo -e "\n\nProvisioning Vagrant box finished!"
