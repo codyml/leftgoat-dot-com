@@ -5,7 +5,7 @@
   "main": "main.js",
   "repository": "https://github.com/codyml/leftgoat-dot-com-new",
   "scripts": {
-    "postinstall-heroku": "npm install --only=dev && webpack -p --progress --colors --display-error-details && npm prune --production",
+    "heroku-postinstall": "npm install --only=dev && webpack -p --progress --colors --display-error-details && npm prune --production",
     "dev-webpack": "webpack -d --watch --progress --colors"
   },
   "author": "Cody M Leff <cody@leftgoat.com>",
