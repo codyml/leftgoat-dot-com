@@ -7,6 +7,7 @@
     @include container;
 
     overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     @include large {
         padding-top: 50px;
@@ -165,7 +166,7 @@
 
                 position: fixed;
                 width: 100vw;
-                height: 100vh;
+                height: auto;
                 top: 0;
                 bottom: 0;
                 left: 0;
@@ -177,11 +178,8 @@
 
                 @media (max-height: 500px) {
 
-                    &.overlay-visible {
-                        overflow-y: scroll;
-                        padding-top: 1em;
-                        padding-bottom: 1em;
-                    }
+                    overflow-y: scroll;
+                    padding: 1.5em 0;
 
                 }
 
