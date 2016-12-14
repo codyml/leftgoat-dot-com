@@ -1,0 +1,80 @@
+/*
+*   Constants
+*/
+
+$green: #49be9f;
+$dark-grey: #3e3e3e;
+
+
+/*
+*   Vertical centering helper mixin
+*/
+
+@mixin vert-center {
+    
+    &::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+
+    & > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+}
+
+
+/*
+*   Styles for whole site
+*/
+
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: .05em;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+    font-family: acier-bat-gris, sans-serif;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: .1em;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2.45em;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity .25s;
+    outline: 0;
+
+    &:hover {
+        opacity: .85;
+    }
+
+}

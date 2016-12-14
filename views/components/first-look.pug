@@ -1,0 +1,23 @@
+#first-look.lazily-load
+    .contact-info
+        a.contact-link(href='tel:' + main_view.fields.phone_number.split('.').join('')) #{ main_view.fields.phone_number }
+        span.separator |
+        a.contact-link(href='mailto:' + main_view.fields.email_address) #{ main_view.fields.email_address }
+    
+    .introduction
+        .introduction-inner
+            svg.claw(viewBox='0 0 50 160')
+                line(x1=0, y1=0, x2=0, y2=110)
+                line(x1=0, y1=110, x2=50, y2=160)
+            
+            h1 Left Goat
+            .tagline= header.fields.tagline
+    
+    .goat-noun.overlay.overlay-transition-fade
+        .goat-noun-inner.resize-to-fit
+            .text goat
+            .pronunciation gōt/
+            .part-of-speech noun
+            .logo
+            .description Noted for its lively and frisky behavior.
+            .continue-button Continue

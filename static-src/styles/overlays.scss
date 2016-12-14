@@ -1,0 +1,116 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*   This stylesheet defines the CSS transitions for showing and hiding
+*   the various overlays in the site.
+*
+*   Written by Cody M Leff <cody@leftgoat.com>
+*
+*/
+
+
+/*
+*   Shared <body> styles
+*/
+body {
+
+    &::after {
+        content: '';
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .5s, visibility 0s .5s;
+    }
+
+    &.overlay-visible {
+
+        overflow: hidden;
+
+        &::after {
+            opacity: .5;
+            visibility: visible;
+            transition: opacity .5s;
+        }
+
+    }
+
+}
+
+
+/*
+*   Transition classes: add .overly and .overlay-transition-TRANSITION-NAME
+*   to an HTML element to enable.
+*/
+
+.overlay {
+
+    z-index: 20;
+    -webkit-overflow-scrolling: touch;
+
+    //  Fades the overlay in and out
+    &.overlay-transition-fade {
+        
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .5s, visibility 0s .5s;
+
+        &.overlay-visible {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity .5s;
+        }
+
+    }
+
+    //  Slides the overlay in from the right over main content
+    &.overlay-transition-slide {
+
+        transform: translateX(100%);
+        transition: transform .5s;
+
+        &.overlay-visible {
+            transform: none;
+        }
+
+    }
+
+    //  Pushes the main content to the right, filling the screen
+    &.overlay-transition-push {
+
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform .5s, visibility 0s .5s;
+        transition-timing-function: ease-in-out;
+
+        //  Disabled because it's broken
+        // @at-root {
+        //     body {
+        //         transform: none;
+        //         transition: transform .5s;
+        //     }
+        // }
+
+        &.overlay-visible {
+
+            transform: none;
+            visibility: visible;
+            transition: transform .5s;
+
+            //  Disabled because it's broken
+            // @at-root {
+            //     body.overlay-visible.overlay-transition-push {
+            //         transform: translateX(50%);
+            //         transition: transform .5s;
+            //     }
+            // }
+
+        }
+
+    }
+
+}

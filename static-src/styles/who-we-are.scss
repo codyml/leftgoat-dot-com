@@ -1,0 +1,91 @@
+/*
+*   Who We Are styles
+*/
+
+#who-we-are {
+
+    @include container;
+
+    overflow-x: hidden;
+
+    > * {
+        @include position(large, 1)
+        @include width(large, 10)
+    }
+
+    h2 {
+
+        color: $green;
+        position: relative;
+
+        &::before {
+            content: '';
+            background-image: url('../images/who-we-are-background.svg');
+            background-repeat: no-repeat;
+            display: block;
+            position: absolute;
+            width: 275px;
+            height: 100px;
+            top: -20px;
+            left: 160px;
+            opacity: .1;
+        }
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s;
+            }
+
+        }
+
+    }
+
+    .large-description {
+
+        color: $green;
+        font-size: 1.125em;
+        letter-spacing: 2px;
+        line-height: 1.25;
+        margin: 2em 0;
+
+        @include large {
+            font-size: 1.25em;
+        }
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s .25s;
+            }
+
+        }
+
+    }
+
+    .small-description {
+        
+        font-size: .8em;
+
+        @include width(large, 7)
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s .15s;
+            }
+
+        }
+
+    }
+
+}

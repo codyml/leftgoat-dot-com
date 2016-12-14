@@ -1,0 +1,8 @@
+#our-work.lazily-load
+    .left
+        h2
+            for letter in looking_for_our_work.title.split('')
+                span= letter
+        .text= looking_for_our_work.fields.text
+
+    a.contact.right Contact

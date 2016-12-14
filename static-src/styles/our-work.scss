@@ -1,0 +1,118 @@
+/*
+*   Looking For Our Work styles
+*/
+
+#our-work {
+
+    @include container;
+
+    color: $green;
+
+    @include medium {
+        text-align: center;
+    }
+
+    @include large {
+        text-align: left;
+    }
+
+    .left {
+
+        @include position(large, 1);
+        @include width(large, 6);
+
+    }
+
+    .right {
+        @include position(large, 2);
+        @include width(large, 3);
+    }
+
+    h2 {
+
+        margin-bottom: .25em;
+
+        span {
+
+            @at-root .lazily-load#{&} {
+
+                opacity: 0;
+
+                @at-root .loaded#{&} {
+                    opacity: 1;
+                }
+
+            }
+
+            @for $i from 1 through 21 {
+
+                @at-root .lazily-load.loaded#{&}:nth-child(#{$i}) {
+
+                    transition: opacity 0s #{$i * .1}s;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .text {
+
+        @include large {
+            font-size: .8em;
+        }
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s 2s;
+            }
+
+        }
+
+    }
+
+    .contact {
+
+        display: inline-block;
+        margin-top: 3em;
+        margin-bottom: 1em;
+        color: #49be9f;
+        text-transform: uppercase;
+        font-size: .9em;
+        font-weight: 600;
+        letter-spacing: 3px;
+        padding: 1.1em 2em 1em 2em;
+        border: 3px solid #49be9f;
+        line-height: 1;
+        text-align: center;
+        transition: background-color .25s, color .25s;
+
+        @include xlarge {
+            margin-top: .75em;
+        }
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s, background-color .25s, color .25s;
+            }
+
+        }
+
+        &:hover {
+            background-color: #49be9f;
+            color: #fff;
+        }
+
+    }
+
+}

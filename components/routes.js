@@ -11,16 +11,17 @@
 
 //  Requires
 const express = require('express');
-const sampleHandler = require('../views/sample-page.js');
+const indexHandler = require('../views/index.js');
+const formSubmitHandler = require('./form-submit.js');
 
 //  Creates middleware
 const publicRouter = express.Router();
 
-//  Renders sample page
-publicRouter.get('/sample', sampleHandler);
+//  Routes form submission requests
+publicRouter.post('/ajax/submit-form', formSubmitHandler);
 
-//  Routes to sample page
-publicRouter.get('/', (req, res) => { res.redirect('/sample') });
+//  Routes to index page
+publicRouter.get('/', indexHandler);
 
 //  Exports
 module.exports = publicRouter;

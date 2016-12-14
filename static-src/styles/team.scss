@@ -1,0 +1,248 @@
+/*
+*   Team styles
+*/
+
+#team {
+
+    @include container;
+
+    overflow-x: hidden;
+
+    @include large {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+
+    h2 {
+
+        color: $green;
+        margin-bottom: 50px;
+        @include large { display: none; }
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s;
+            }
+
+        }
+
+    }
+
+    ul {
+
+        text-align: center;
+
+        li {
+
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2em;
+
+            @include large {
+
+                width: calc(33.3333% - 33.3333px);  /*  (100% - 100px) / 3  */
+                box-sizing: content-box;
+                padding-right: 50px;
+                margin-bottom: 0;
+
+            }
+
+            @media (max-height: 500px) {
+                max-width: 300px;
+            }
+
+            @at-root .lazily-load#{&} {
+
+                opacity: 0;
+                transform: translateX(-25%);
+
+                @at-root .loaded#{&} {
+                    opacity: 1;
+                    transform: none;
+                }
+
+            }
+
+            @for $i from 1 through 3 {
+
+                @at-root .lazily-load.loaded#{&}:nth-child(#{$i}) {
+
+                    transition: opacity .5s #{$i * .1 - .1}s, transform .5s #{$i * .1 - .1}s;
+
+                }
+
+            }
+
+            &:last-child {
+                padding-right: 0;
+                margin-bottom: 0;
+            }
+
+            .headshot {
+
+                width: 100%;
+                padding-bottom: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-origin: top;
+                position: relative;
+
+                &[data-machine-name="pieter-verhaar"] {
+                    background-image: url('../images/pieter-verhaar.png');
+                }
+
+                &[data-machine-name="holly-mandarich"] {
+                    background-image: url('../images/holly-mandarich.png');
+                }
+
+                &[data-machine-name="cody-leff"] {
+                    background-image: url('../images/cody-leff.png');
+                }
+
+                .read-bio {
+
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    color: #49be9f;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    letter-spacing: .25em;
+                    font-size: 3em;
+                    background-color: rgba(255, 255, 255, .9);
+                    text-align: right;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: opacity .25s, visibility 0s .25s;
+
+                    .read-bio-inner {
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translate(16.5%, -50%);
+                    }
+
+                }
+
+                &:hover .read-bio {
+                    visibility: visible;
+                    opacity: 1;
+                    transition: opacity .25s;
+                }
+
+            }
+
+            .description {
+
+                color: $green;
+                margin: 1.5em .75em;
+                text-align: right;
+                padding: 0 1.5em 0 0;
+                border-right: 2px solid $green;
+                letter-spacing: 1px;
+
+                .name {
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-bottom: .5em;
+                }
+
+                .position {
+                    font-size: .75em;
+                }
+
+            }
+
+            .overlay {
+
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: $green;
+                color: #fff;
+
+                @include vert-center;
+
+                @media (max-height: 500px) {
+
+                    &.overlay-visible {
+                        overflow-y: scroll;
+                        padding-top: 1em;
+                        padding-bottom: 1em;
+                    }
+
+                }
+
+                .overlay-inner {
+
+                    @include large {
+                        font-size: 1.25em;
+                    }
+
+                    .name {
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        margin-bottom: .25em;
+                        font-weight: 700;
+                        font-size: 1.125em;
+                    }
+
+                    .position {
+                        font-size: .7em;
+                        letter-spacing: .5px;
+                        margin-bottom: 2.5em;
+                    }
+
+                    .bio-text {
+                        font-size: .75em;
+                        width: 60%;
+                        min-width: 250px;
+                        margin: auto;
+                    }
+
+                    .bio-close-button {
+
+                        display: block;
+                        width: 2em;
+                        height: 2em;
+                        margin: 0 auto 2.5em auto;
+
+                        @large {
+                            margin-bottom: 4em;
+                        }
+
+                        svg {
+
+                            width: 100%;
+                            height: 100%;
+
+                            line {
+                                stroke: #fff;
+                                stroke-width: 1.5px;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

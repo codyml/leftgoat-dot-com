@@ -41,6 +41,9 @@ app.set('view engine', 'pug');
 //  Handle WordPress admin requests
 app.use(wordpress.admin);
 
+//  Routes static assets
+app.use('/static', express.static('static-dist'));
+
 //  Intercepts requests, for error handling
 app.use(wordpress.intercept)
 

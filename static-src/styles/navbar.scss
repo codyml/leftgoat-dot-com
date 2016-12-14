@@ -1,0 +1,210 @@
+/*
+*   Navbar styles
+*/
+
+#navbar {
+
+    @include container;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 12.5em;
+    background-color: $green;
+    text-transform: uppercase;
+    overflow: visible;
+
+    @include vert-center;
+
+    @include medium {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    @include large {
+
+        &::before {
+            content: none;
+        }
+
+        & > * {
+            display: block;
+        }
+
+        position: absolute;
+        height: 140px;
+        width: 100%;
+        top: calc(100vh - 140px);
+        bottom: auto;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        padding: 30px 50px;
+        background-color: transparent;
+        line-height: 80px;
+        text-align: center;
+        font-size: 1.2em;
+        transform: none;
+        transition: background-color .75s;
+
+        &.floating {
+
+            position: fixed;
+            height: 140px;
+            top: 0;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+
+        }
+
+    }
+
+    @include xlarge { padding: 30px calc(50vw - 550px) 40px calc(50vw - 550px); }
+
+    @media (max-height: 500px) {
+
+        &.overlay-visible {
+            overflow-y: scroll;
+            padding-top: 75px;
+        }
+
+    }
+
+    .links {
+
+        @include large {
+            background-color: $green;
+        }
+
+        ul {
+
+            width: 100%;
+
+            li {
+
+                font-size: .75em;
+                margin-bottom: 2.5em;
+                letter-spacing: 1px;
+
+                @include large {
+                    display: inline-block;
+                    height: 100%;
+                    margin-bottom: 0;
+                    padding: 0 1em;
+                    line-height: 80px;
+                    vertical-align: middle;
+                }
+
+                @include xlarge {
+                    padding: 0 2em;
+                }
+
+                &.home {
+
+                    font-size: 1.25em;
+
+                    @include large {
+
+                        a {
+                            border-right: 1px solid #fff;
+                            padding-right: 1.55em;
+                        }
+
+                    }
+
+                    @include xlarge {
+
+                        a {
+                            padding-right: 3em;
+                        }
+
+                    }
+
+                    &::after {
+
+                        display: block;
+                        content: '';
+                        border-bottom: 2px solid #fff;
+                        width: 2em;
+                        height: .75em;
+                        margin-bottom: 2em;
+
+                        @include large { display: none; }
+
+                    }
+
+                }
+
+                a {
+                    color: #fff;
+                    font-weight: 300;
+                    letter-spacing: 2px;
+                }
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+            }
+
+        }
+
+    }
+
+    .small-screen-open-button,
+    .small-screen-close-button {
+
+        display: block;
+        position: absolute;
+
+        @include large { display: none; }
+
+        svg {
+
+            width: 100%;
+            height: 100%;
+
+            line {
+                stroke: #fff;
+                stroke-width: 1.5px;
+            }
+
+        }
+
+    }
+
+    .small-screen-open-button {
+
+        width: 50px;
+        height: 50px;
+        top: 0;
+        right: 100%;
+        box-shadow: 0 0 5px #888;
+        background-color: $green;
+
+        body.overlay-visible & {
+            display: none;
+        }
+
+    }
+
+    .small-screen-close-button {
+        
+        width: 25px;
+        height: 25px;
+        top: 25px;
+        right: 25px;
+
+        body:not(.overlay-visible) {
+            display: none;
+        }
+        
+    }
+
+}

@@ -1,0 +1,121 @@
+/*
+*   Services styles
+*/
+
+.above-services-banner {
+    height: 65vw;
+    max-height: 500px;
+    background-image: url('../images/woman-typing-hero.jpg');
+    background-size: cover;
+}
+
+#services {
+
+    @include container;
+
+    > * {
+        @include position(large, 1)
+        @include width(large, 7)
+    }
+
+    h2 {
+
+        color: $green;
+
+        @include large {
+
+            @at-root .lazily-load#{&} {
+
+                opacity: 0;
+
+                @at-root .loaded#{&} {
+                    opacity: 1;
+                    transition: opacity .5s;
+                }
+
+            }
+
+        }
+
+    }
+
+    .list-introduction,
+    .services-addendum {
+
+        font-size: .8em;
+        margin: 3em 0;
+
+    }
+
+    .list-introduction {
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s;
+            }
+
+        }
+
+    }
+
+    .services-addendum {
+
+        margin-bottom: 0;
+
+        @at-root .lazily-load#{&} {
+
+            opacity: 0;
+
+            @at-root .loaded#{&} {
+                opacity: 1;
+                transition: opacity .5s .5s;
+            }
+
+        }
+
+    }
+
+    .services-list {
+
+        line-height: 1.5;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $green;
+        letter-spacing: 2px;
+
+        li {
+
+            margin-bottom: 1em;
+            font-size: .9em;
+
+            @at-root .lazily-load#{&} {
+
+                opacity: 0;
+                transform: translateX(25%);
+
+                @at-root .loaded#{&} {
+                    opacity: 1;
+                    transform: none;
+                }
+
+            }
+
+            @for $i from 1 through 4 {
+
+                @at-root .lazily-load.loaded#{&}:nth-child(#{$i}) {
+
+                    transition: opacity .5s #{$i * .1}s, transform .5s #{$i * .1}s;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,23 @@
+#team.lazily-load
+    h2 Our Team
+    ul 
+        for teammember in [ pieter_verhaar, holly_mandarich, cody_leff ]
+            li.bio
+                .headshot(data-machine-name=teammember.title.toLowerCase().split(' ').join('-'))
+                    a.read-bio
+                        .read-bio-inner Read<br>Bio
+                .description
+                    .name= teammember.title
+                    .position= teammember.fields.position
+
+                .overlay.overlay-transition-push
+                    .overlay-inner
+                        a.bio-close-button
+                            svg(viewBox='0 0 25 25')
+                                line(x1=0, y1=0, x2=25, y2=25)
+                                line(x1=0, y1=25, x2=25, y2=0)
+                                    
+                        .name= teammember.title
+                        .position= teammember.fields.position
+                        .bio-text.normal-text= teammember.fields.bio
+                        

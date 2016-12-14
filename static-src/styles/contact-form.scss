@@ -1,0 +1,246 @@
+/*
+*   Contact Form styles
+*/
+
+#contact-form {
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #fff;
+    color: $green;
+
+    @include large {
+        padding: 0 50px 100px 50px;
+    }
+
+    @include xlarge {
+        padding-left: calc(50vw - 550px);
+        padding-right: calc(50vw - 550px);
+    }
+
+    .close {
+
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 25px;
+        right: 25px;
+        z-index: 1;
+
+        svg {
+
+            width: 100%;
+            height: 100%;
+
+            line {
+
+                stroke: #fff;
+                stroke-width: 1.5px;
+
+                @include large {
+                    stroke: $green;
+                }
+
+            }
+
+        }
+
+    }
+
+    .contact-info-box {
+
+        @include container;
+
+        background-color: $green;
+        color: #fff;
+        text-align: center;
+        font-size: .9em;
+        line-height: 1.5;
+        font-weight: 200;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        @include small {
+            padding-top: 55px;
+            padding-bottom: 25px;
+        }
+
+        @include large {
+            padding: 75px 0;
+        }
+
+        @include position(large, 1);
+        @include width(large, 10);
+
+        .email-phone {
+            padding-top: 25px;
+            padding-bottom: 40px;
+        }
+
+        .separator {
+
+            width: 5em;
+            margin: 0 auto;
+            border-bottom: 1px solid #fff;
+
+            @include large {
+                width: 0;
+                height: 6em;
+                border-bottom: 0;
+                border-left: 1px solid #fff;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+        }
+
+        .address {
+            padding-top: 40px;
+            padding-bottom: 25px;
+        }
+
+        .email-phone,
+        .address {
+
+            @include large {
+                width: calc(50% - 0.5px);
+                display: inline-block;
+                padding: 0;
+                vertical-align: middle;
+            }
+
+            a {
+                display: inline-block;
+                @include large { display: block; }
+            }
+
+        }
+
+    }
+
+    .form {
+
+        @include container;
+
+        text-transform: uppercase;
+
+        @include position(large, 2);
+        @include width(large, 8);
+
+        @include large {
+            padding: 0;
+        }
+
+        > * {
+            @include position(small, 2);
+            @include width(small, 8);
+            @include position(large, 0);
+            @include width(large, 12);
+        }
+
+        h3 {
+            font-size: 2em;
+            margin: 2em 0;
+            text-align: center;
+        }
+
+        label {
+
+            letter-spacing: 1px;
+            font-size: .9em;
+            text-align: left;
+            margin-bottom: 4em;
+
+            @include large {
+
+                &.text {
+                    width: 40%;
+                    margin-left: 5%;
+                    margin-right: 5%;
+                }
+
+                &.text-area-input {
+                    width: 90%;
+                    margin-left: 5%;
+                    margin-right: 5%;
+                }
+
+            }
+
+            input,
+            textarea {
+                display: block;
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid #49be9f;
+                padding: .25em 0;
+                color: $green;
+                font-size: 1.25em;
+                font-weight: 300;
+                outline: none;
+                letter-spacing: .75px;
+            }
+
+            textarea {
+                border: 2px solid $green;
+                margin-top: 1.5em;
+                height: 15em;
+                padding: 1em;
+            }
+
+        }
+
+        .submit {
+
+            margin-bottom: 2em;
+            padding: .5em 0;
+            border: 2px solid #49be9f;
+            font-size: 1.5em;
+            font-family: 'acier-bat-gris', sans-serif;
+            font-weight: 400;
+            letter-spacing: .1em;
+            color: $green;
+            transition: color .25s, background-color .25s;
+
+            @include position(large, 4.5);
+            @include width(large, 3);
+
+            &::after {
+                display: block;
+                content: 'Submit';
+            }
+
+            &:hover,
+            &.submitting {
+                color: #fff;
+                background-color: $green;
+            }
+
+            &.submitting {
+
+                cursor: default;
+
+                &::after {
+                    content: 'Submitting...';
+                }
+
+            }
+
+            &.submitted::after {
+                content: 'Submitted!';
+            }
+
+        }
+
+    }
+
+}

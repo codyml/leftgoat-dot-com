@@ -1,0 +1,9 @@
+.above-services-banner
+#services.lazily-load
+    h2 Services
+    .list-introduction= services.fields.list_introduction
+    ul.services-list 
+        for service in services.fields.services_list.split('\r\n').slice(0, -1)
+            li!= service
+
+    .services-addendum= services.fields.services_addendum

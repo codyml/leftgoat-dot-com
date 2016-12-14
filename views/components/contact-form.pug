@@ -1,0 +1,26 @@
+#contact-form.overlay.overlay-transition-push
+    a.close
+        svg(viewBox='0 0 25 25')
+            line(x1=0, y1=0, x2=25, y2=25)
+            line(x1=0, y1=25, x2=25, y2=0)
+
+    .contact-info-box
+        .email-phone
+            a.contact-link(href='tel:' + main_view.fields.phone_number.split('.').join('')) #{ main_view.fields.phone_number }
+            a.contact-link(href='mailto:' + main_view.fields.email_address) #{ main_view.fields.email_address }
+
+        .separator
+        .address!= main_view.fields.mailing_address.split('\n').join('<br>')
+
+    .form
+        h3 Tell us about your project
+        for fieldName in [ 'Name', 'Email', 'Phone Number', 'Website' ]
+            label.text
+                | #{ fieldName + ':' }
+                input(type='text', data-field-name=fieldName)
+
+        label.text-area-input
+            | Description:
+            textarea(data-field-name='Description')
+
+        a.submit

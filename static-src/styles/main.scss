@@ -1,0 +1,41 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*   This the SCSS stylesheet for leftgoat.com.  It imports the
+*   styles for the various sections of the site and defines custom
+*   fonts.
+*
+*   Written by Cody M Leff <cody@leftgoat.com>
+*
+*/
+
+
+/*
+*   Imports
+*/
+
+//  Normalize.css
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css');
+
+//  Fonts
+@import 'fonts';
+
+//  Responsive helpers
+@import 'responsive';
+
+//  Overlay transitions
+@import 'overlays';
+
+//  Shared styles
+@import 'shared';
+
+//  Markup sections
+@import 'first-look';
+@import 'navbar';
+@import 'who-we-are';
+@import 'services';
+@import 'the-difference';
+@import 'team';
+@import 'our-work';
+@import 'footer';
+@import 'contact-form';
+

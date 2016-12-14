@@ -1,0 +1,4 @@
+#footer
+    a.contact-link(href='tel:' + main_view.fields.phone_number.split('.').join('')) #{ main_view.fields.phone_number }
+    span.separator |
+    span!= main_view.fields.mailing_address.split('\n').join('<br class="lg-hidden xl-hidden">')
