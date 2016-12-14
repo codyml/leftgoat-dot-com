@@ -8,9 +8,11 @@ html(lang="en")
         link(rel="shortcut icon", href="/static/icon32.png")
         link(rel="apple-touch-icon", href="/static/icon512.png")
         link(rel="stylesheet", href="/static/styles.css")
-        include tracking/google-analytics.html
+        if app.get('env') === 'production'
+            include tracking/google-analytics.html
             
     body
         block content
         script(src='/static/bundle.js')
-        include tracking/quantcast.html
+        if app.get('env') === 'production'
+            include tracking/quantcast.html

@@ -38,6 +38,9 @@ app.use(compression());
 //  Set Pug as the view engine
 app.set('view engine', 'pug');
 
+//  Allow access to Express server from view engine
+app.use((req, res, next) => { res.locals.app = app; next(); });
+
 //  Handle WordPress admin requests
 app.use(wordpress.admin);
 
