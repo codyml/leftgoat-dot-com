@@ -16,8 +16,6 @@
     "express-sslify": "^1.1.0",
     "memory-cache": "^0.1.6",
     "pug": "^2.0.0-beta6",
-    "request": "^2.75.0",
-    "request-promise-native": "^1.0.3"
   },
   "devDependencies": {}
 }
