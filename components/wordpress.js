@@ -67,28 +67,37 @@ function contentRequest(slug) {
 
             method: 'get',
             port: WP_PORT,
-            path: `/${slug}/`,
+            path: `/${slug}`,
 
         }, response => {
 
-            let responseBody = ''
-            response.on('data', chunk => responseBody += chunk)
-            response.on('end', () => {
+            if (response.statusCode === 200) {
 
-                try {
+                let responseBody = ''
+                response.on('data', chunk => responseBody += chunk)
+                response.on('end', () => {
 
-                    const decodedResponse = JSON.parse(responseBody)
-                    cache.put(slug, decodedResponse)
-                    resolve(decodedResponse)
+                    try {
 
-                } catch(error) {
+                        const decodedResponse = JSON.parse(responseBody)
+                        cache.put(slug, decodedResponse)
+                        resolve(decodedResponse)
 
-                    wpError('Failed to decode response WordPress response (response and error attached).', responseBody, error)
-                    reject()
+                    } catch(error) {
 
-                }
+                        wpError('Failed to decode WordPress response!')
+                        reject()
 
-            })
+                    }
+
+                })
+
+            } else {
+
+                wpError(`WordPress request error: ${response.statusCode} ${response.statusMessage}`)
+                reject()
+
+            }
 
         }).end()
 
@@ -101,9 +110,9 @@ let mostRecentRequest = null
 function interceptRequest(req, res, next) { mostRecentRequest = res; next() }
 
 //  Prints error to the console and renders 500 page
-function wpError(text, response, error) {
+function wpError(error) {
 
-    if (error) console.error(text, response, error)
+    console.error(error)
     if (mostRecentRequest) {
 
         mostRecentRequest.status(500).render('500')
