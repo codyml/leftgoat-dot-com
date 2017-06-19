@@ -18,13 +18,16 @@ module.exports = {
         rules: [
             
             {
-                test: /\.s?css$/,
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     use: [
-                        { loader: 'css-loader', options: { sourceMap: true } },
-                        { loader: 'sass-loader', options: { sourceMap: true } },
+                        {
+                            loader: 'css-loader',
+                            options: { importLoaders: 1 },
+                        },
+                        'postcss-loader',
                     ],
-                })
+                }),
             },
             {
                 test: /\.js$/,

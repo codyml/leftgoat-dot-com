@@ -2,10 +2,13 @@
 *   Site style constants
 */
 
-$green: #49be9f;
-$light-black: #333;
-$sans-serif: Montserrat, sans-serif;
-$dictionary-serif: Times New Roman, serif;
+:root {
+    --green: #49be9f;
+    --light-black: #333;
+    --dark-white: #ddd;
+    --sans-serif: Montserrat, sans-serif;;
+    --dictionary-serif: Times New Roman, serif;
+}
 
 
 /*
@@ -13,9 +16,9 @@ $dictionary-serif: Times New Roman, serif;
 */
 
 body {
-    font-family: $sans-serif;
+    font-family: var(--sans-serif);
     font-size: 16px;
-    color: $black;
+    color: var(--light-black);
 }
 
 a {
@@ -32,7 +35,7 @@ a {
 
 h1 {
     font-size: 3em;
-    color: $green;
+    color: var(--green);
     text-transform: uppercase;
     letter-spacing: .1em;
 }
@@ -62,5 +65,5 @@ h6 {
 
 h5 > em,
 h6 > em {
-    font-family: $dictionary-serif;
+    font-family: var(--dictionary-serif);
 }

@@ -4,8 +4,15 @@
     height: calc(100vh - 5em);
     padding-top: 0;
     padding-bottom: 0;
+    background-size: cover;
+    background-position: center;
 
-    .contact-info {
+    @media (max-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    & .contact-info {
         
         display: flex;
         position: absolute;
@@ -16,46 +23,49 @@
         text-shadow: 0 0 2px black;
         border-bottom: 0.5px solid white;
         font-size: .8em;
-        color: $white;
+        color: white;
         letter-spacing: 2.5px;
         text-transform: uppercase;
         z-index: 1;
     
-        a {
+        & a {
             
             padding: 0 1.5em;
             line-height: 1;
 
             &:first-child {
-                border-right: 1px solid $white;
+                border-right: 1px solid white;
             }
 
         }
 
     }
 
-    
-    .container {
+    & .container {
 
         height: 100%;
 
-        .columns {
+        & .columns {
 
             height: 100%;
             margin: 0;
 
-            .introduction {
+            @media (max-width: 768px) {
+                padding: 1em;
+            }
+
+            & .introduction {
                 
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 background-color: rgba(0, 0, 0, .5);
                 padding: 1.5em;
-                color: $white;
+                color: white;
                 font-weight: 400;
                 letter-spacing: .05em;
             
-                .claw {
+                & .claw {
 
                     position: relative;
                     bottom: 7em;
@@ -64,9 +74,9 @@
                     width: 3.125em;
                     margin-bottom: -10em;
 
-                    line {
+                    & line {
 
-                        stroke: $green;
+                        stroke: var(--green);
                         stroke-width: 4px;
 
                         &:last-child {
@@ -77,48 +87,62 @@
 
                 }
 
+                @media (max-width: 768px) {
+                    position: absolute;
+                    bottom: 0;
+                    padding-left: 5em;
+                    padding-right: 5em;
+                }
+
             }
 
-            .definition-card {
+            & .definition-card {
                 
                 margin-top: 3em;
                 margin-bottom: 6em;
                 padding: 2em;
-                background-color: rgba(240, 240, 240, .95);
-                box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+                background-color: color(var(--dark-white) alpha(.95));
+                box-shadow: 0 0 10px color(black alpha(.25));
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-                color: $light-black;
+                color: var(--light-black);
             
-                img {
+                & img {
                     width: 60%;
                     margin: 4em 0;
                 }
 
-                .continue-button {
+                & .continue-button {
                     
                     margin: 2em 0;
-                    border: 2px solid $green;
+                    border: 2px solid var(--green);
                     padding: 1em 2em;
-                    color: $green;
+                    color: var(--green);
                     text-transform: uppercase;
                     font-weight: 600;
                     letter-spacing: .15em;
                     transition: color .2s, background-color .2s;
 
                     &:hover {
-                        color: $white;
-                        background-color: $green;
+                        color: white;
+                        background-color: var(--green);
                         cursor: pointer;
                     }
 
-                    @at-root body:not(.mobile) & {
-                        display: none;
-                    }
+                }
 
+                @media (max-width: 768px) {
+                    position: fixed;
+                    top: 1em;
+                    right: 1em;
+                    bottom: 1em;
+                    left: 1em;
+                    margin: 0;
+                    z-index: 2;
+                    background-color: var(--dark-white);
                 }
 
             }

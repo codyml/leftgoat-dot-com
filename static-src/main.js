@@ -2,4 +2,4 @@
 *   Imports SCSS for export to file.
 */
 
-import './styles/main.scss'
+import './styles/main.css'
