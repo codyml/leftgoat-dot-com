@@ -1,0 +1,108 @@
+#nav-menu {
+    
+    margin-top: -6em;
+
+    & ul {
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 5em;
+        padding: 0 2em;
+        background-color: var(--green);
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-weight: lighter;
+
+        @media (max-width: 1000px) {
+            font-size: .9em;
+            padding: 0 1em;
+        }
+    
+        & .home {
+            font-size: 1.5em;
+        }
+
+        & .separator {
+            width: 0;
+            height: 2em;
+            overflow: hidden;
+            border-right: 1px solid white;
+        }
+
+    }
+
+    & .mobile {
+
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        & ul {
+
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 2em;
+            padding-right: 4em;
+            font-size: .9;
+
+            & .separator {
+                width: 3em;
+                height: 0;
+                overflow: hidden;
+                border-bottom: 2px solid white;
+                margin: -.5em 0 3em 0;
+            }
+
+            & li {
+                margin: 1em 0;
+            }
+
+        }
+
+        & .small-screen-open-button,
+        & .small-screen-close-button {
+
+            display: block;
+            position: absolute;
+
+            & svg {
+
+                width: 100%;
+                height: 100%;
+
+                & line {
+                    stroke: white;
+                    stroke-width: 1.5px;
+                }
+
+            }
+
+        }
+
+        & .small-screen-open-button {
+
+            width: 50px;
+            height: 50px;
+            top: 0;
+            right: 100%;
+            box-shadow: 0 0 5px var(--medium-grey);
+            background-color: var(--green);
+
+        }
+
+        & .small-screen-close-button {
+            
+            width: 25px;
+            height: 25px;
+            top: 25px;
+            right: 25px;
+            
+        }
+
+    }
+
+}

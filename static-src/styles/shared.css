@@ -6,6 +6,7 @@
     --green: #49be9f;
     --light-black: #333;
     --dark-white: #ddd;
+    --medium-grey: #888;
     --sans-serif: Montserrat, sans-serif;;
     --dictionary-serif: Times New Roman, serif;
 }
@@ -21,8 +22,12 @@ body {
     color: var(--light-black);
 }
 
+.section {
+    padding: 3em;
+}
+
 .container.is-fluid {
-    max-width: 1300px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }

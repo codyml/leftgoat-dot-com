@@ -18,7 +18,7 @@ $phone_number_without_separators = implode( '', explode( '.', get_field( 'contac
                     <line x1="0" y1="110" x2="50" y2="160"></line>
                 </svg>
             </div>
-            <article class="definition-card column is-offset-1 is-3">
+            <article class="definition-card column is-offset-1 is-4">
                 <?php echo get_field( 'first_look_definition_card' ); ?>
                 <div class="continue-button is-hidden-tablet">Continue</button>
             </div>

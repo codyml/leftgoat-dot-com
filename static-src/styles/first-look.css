@@ -1,7 +1,7 @@
 #first-look {
     
     position: relative;
-    height: calc(100vh - 5em);
+    height: calc(100vh - 4em);
     padding-top: 0;
     padding-bottom: 0;
     background-size: cover;
@@ -135,6 +135,7 @@
                 }
 
                 @media (max-width: 768px) {
+                    display: none;
                     position: fixed;
                     top: 1em;
                     right: 1em;
