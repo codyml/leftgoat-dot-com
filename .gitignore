@@ -8,3 +8,4 @@ local.log
 dev-ssl.cert
 dev-ssl.key
 static-dist
+dev-env
