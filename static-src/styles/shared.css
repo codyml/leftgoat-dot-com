@@ -21,6 +21,12 @@ body {
     color: var(--light-black);
 }
 
+.container.is-fluid {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 a {
 
     color: inherit;
