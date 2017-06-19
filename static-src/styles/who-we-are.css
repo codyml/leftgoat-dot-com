@@ -1,0 +1,41 @@
+/*
+*   Who We Are section styles
+*/
+
+#who-we-are {
+    
+    & h1 {
+        
+        margin-bottom: 1em;
+        position: relative;
+
+        &::after {
+
+            content: '';
+            background-image: url('../images/who-we-are-background.svg');
+            display: block;
+            position: absolute;
+            top: -.5em;
+            left: 5.5em;
+            width: 8em;
+            height: 5em;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top left;
+            opacity: .125;
+
+        }
+
+    }
+
+    & h3 {
+
+        margin: 3em 0;
+    
+        & strong {
+            color: inherit;
+        }
+
+    }
+
+}

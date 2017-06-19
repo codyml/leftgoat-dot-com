@@ -16,20 +16,52 @@
 *   Styles for the site that are shared between components.
 */
 
+/*
+*   Site shared styles
+*/
+
 body {
     font-family: var(--sans-serif);
     font-size: 16px;
     color: var(--light-black);
 }
 
-.section {
+section {
+    
     padding: 3em;
+
+    @media (max-width: 600px) {
+        padding-left: 1em;
+        padding-right: 1em;
+        font-size: .85em;
+    }
+
 }
 
-.container.is-fluid {
+.fluid-container {
+    
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+.body-content {
+    
+    padding-left: 4em;
+    padding-right: 4em;
+
+    @media (max-width: 600px) {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+}
+
+p {
+    font-size: .9em;
+    max-width: 600px;
+    letter-spacing: .025em;
 }
 
 a {
@@ -45,10 +77,12 @@ a {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     color: var(--green);
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
+    line-height: 1;
 }
 
 h2 {
@@ -56,7 +90,10 @@ h2 {
 }
 
 h3 {
-
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: .05em;
+    color: var(--green);
 }
 
 h4 {

@@ -4,12 +4,12 @@ $phone_number_without_separators = implode( '', explode( '.', get_field( 'contac
 
 ?>
 
-<section id="first-look" class="section" style="background-image: url('<?php echo get_field( 'first_look_full_width_background_image' ); ?>');">
+<section id="first-look" style="background-image: url('<?php echo get_field( 'first_look_full_width_background_image' ); ?>');">
     <div class="contact-info is-hidden-mobile">
         <a href="tel:<?php echo $phone_number_without_separators ?>"><?php echo get_field( 'contact_info_phone_number' ); ?></a>
         <a href="mailto:<?php echo get_field( 'contact_info_email_address' ); ?>"><?php echo get_field( 'contact_info_email_address' ); ?></a>
     </div>
-    <div class="container is-fluid">
+    <div class="fluid-container">
         <div class="columns">
             <div class="introduction column is-offset-1 is-6">
                 <article><?php echo get_field( 'first_look_content' ); ?></article>
