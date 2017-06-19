@@ -1,41 +1,34 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*
-*   This the SCSS stylesheet for leftgoat.com.  It imports the
-*   styles for the various sections of the site and defines custom
-*   fonts.
-*
-*   Written by Cody M Leff <cody@leftgoat.com>
-*
+/*
+*   Imports Bulma
 */
+
+@import '~bulma/bulma';
 
 
 /*
-*   Imports
+*   Imports Font Awesome
 */
 
-//  Normalize.css
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css');
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
 
-//  Fonts
-@import 'fonts';
 
-//  Responsive helpers
-@import 'responsive';
+/*
+*   Imports fonts
+*/
 
-//  Overlay transitions
-@import 'overlays';
+@import './fonts.scss';
 
-//  Shared styles
-@import 'shared';
 
-//  Markup sections
-@import 'first-look';
-@import 'navbar';
-@import 'who-we-are';
-@import 'services';
-@import 'the-difference';
-@import 'team';
-@import 'our-work';
-@import 'footer';
-@import 'contact-form';
+/*
+*   Imports shared styles
+*/
 
+@import './shared.scss';
+
+
+/*
+*   Imports page component styles
+*/
+
+@import './first-look.scss';

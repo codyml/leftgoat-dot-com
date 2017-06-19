@@ -6,14 +6,22 @@
 
 get_header();
 
-?>
+if ( have_posts() ) {
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    while ( have_posts() ) {
 
-<?php print_r( get_fields() ); ?>
+        the_post();
+        
+        get_template_part( 'parts/first-look' );
+        // get_template_part( 'parts/navbar' );
+        // get_template_part( 'parts/who-we-are' );
+        // get_template_part( 'parts/services' );
+        // get_template_part( 'parts/the-difference' );
+        // get_template_part( 'parts/our-team' );
+        // get_template_part( 'parts/our-work' );
 
-<?php endwhile; endif; ?>
+    }
 
-<?php
+}
 
 get_footer();
