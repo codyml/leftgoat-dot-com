@@ -5,12 +5,9 @@
 #nav-menu {
     
     position: relative;
-    padding-top: 0;
-    padding-bottom: 0;
-
-    @media (min-width: 769px) {
-        margin-top: -6em;
-    }
+    margin-top: -6em;
+    padding-left: 4em;
+    padding-right: 4em;
 
     & ul {
         
