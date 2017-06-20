@@ -1,0 +1,147 @@
+/*
+*   Contact form styles
+*/
+
+#contact {
+
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: scroll;
+    padding-top: 0;
+    background-color: white;
+    color: var(--green);
+    z-index: 1;
+
+    & .close-button {
+        
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 25px;
+        right: 3em;
+        transform: translateX(50%);
+        z-index: 1;
+
+        & svg line {
+            stroke: var(--green);
+        }
+
+    }
+
+    & .contact-info {
+        
+        display: flex;
+        align-items: center;
+        background-color: var(--green);
+        color: white;
+        padding: 4em 0;
+        text-align: center;
+        font-weight: lighter;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+
+        & .first, & .second {
+            width: 50%;
+        }
+
+        & .separator {
+            border-right: 1px solid white;
+            align-self: stretch;
+        }
+    
+        & a {
+            display: block;
+        }
+
+    }
+
+    & .contact-form {
+
+        text-align: center;
+
+        & form {
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            & label {
+
+                text-align: left;
+                padding: 2em 1em;
+                text-transform: uppercase;
+                letter-spacing: .075em;
+                font-size: .9em;
+
+                &.half-width {
+                    
+                    width: 50%;
+                
+                    @media (max-width: 900px) {
+                        width: 100%;
+                    }
+
+                }
+
+                &.full-width {
+                    width: 100%;
+                }
+
+                & input[type="text"],
+                & textarea {
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid var(--green);
+                    padding: .5em 0;
+                    font-size: 1.25em;
+                    font-weight: lighter;
+                    letter-spacing: .05em;
+                    color: var(--green);
+                }
+
+                & textarea {
+                    height: 10em;
+                    border: 2px solid var(--green);
+                    margin-top: 1em;
+                    padding: 1em;
+                }
+
+            }
+
+            & .submit-button {
+                display: block;
+                margin: 1em;
+            }
+
+        }
+
+    }
+
+    @media (max-width: 900px) {
+
+        padding: 0;
+
+        & .close-button svg line {
+            stroke: white;
+        }
+
+        & .contact-info {
+            
+            flex-direction: column;
+        
+            & .separator {
+                align-self: auto;
+                margin: 2em 0;
+                border-bottom: 1px solid white;
+                width: 4em;
+            }
+
+        }
+
+    }
+
+}

@@ -9,7 +9,7 @@ $phone_number_without_separators = implode( '', explode( '.', get_field( 'contac
         <a href="tel:<?php echo $phone_number_without_separators ?>"><?php echo get_field( 'contact_info_phone_number' ); ?></a>
         <a href="mailto:<?php echo get_field( 'contact_info_email_address' ); ?>"><?php echo get_field( 'contact_info_email_address' ); ?></a>
     </div>
-    <div class="fluid-container">
+    <div class="stretchy-container">
         <div class="columns">
             <div class="introduction column is-offset-1 is-6">
                 <article><?php echo get_field( 'first_look_content' ); ?></article>

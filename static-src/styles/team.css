@@ -4,6 +4,8 @@
 
 #team {
 
+    padding-bottom: 0;
+
     & ul {
 
         display: flex;
@@ -114,25 +116,10 @@
                     display: flex;
                 }
 
-                & .bio-close-button {
-
-                    display: block;
+                & .close-button {
                     width: 2.5em;
                     height: 2.5em;
                     margin: 0 auto 2.5em auto;
-
-                    & svg {
-
-                        width: 100%;
-                        height: 100%;
-
-                        & line {
-                            stroke: white;
-                            stroke-width: 1.5px;
-                        }
-
-                    }
-
                 }
 
                 & .name {

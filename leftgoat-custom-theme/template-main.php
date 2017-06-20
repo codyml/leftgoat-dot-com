@@ -19,7 +19,8 @@ if ( have_posts() ) {
         get_template_part( 'parts/the-difference' );
         get_template_part( 'parts/team' );
         get_template_part( 'parts/our-work' );
-        //get_template_part( 'contact' );
+        get_template_part( 'parts/contact-footer' );
+        get_template_part( 'parts/contact' );
 
     }
 
