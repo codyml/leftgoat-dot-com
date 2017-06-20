@@ -12,6 +12,7 @@ if ( have_posts() ) {
 
         the_post();
         
+        // get_template_part( 'parts/loading' );
         get_template_part( 'parts/first-look' );
         get_template_part( 'parts/nav-menu' );
         get_template_part( 'parts/who-we-are' );

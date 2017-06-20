@@ -27,7 +27,7 @@ body {
         transition: opacity var(--duration), visibility 0s var(--duration);
     }
 
-    &.coordinated-overlay-open {
+    &.loading-finished.coordinated-overlay-open {
         
         overflow: hidden;
 

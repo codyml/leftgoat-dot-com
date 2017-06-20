@@ -7,8 +7,9 @@
     --light-black: #333;
     --dark-white: #ddd;
     --medium-grey: #888;
-    --sans-serif: Montserrat, sans-serif;;
-    --dictionary-serif: Times New Roman, serif;
+    --sans-serif: Montserrat, sans-serif;
+    --display: Bungee Outline, cursive;
+    --dictionary-serif: Libre Baskerville, serif;
 }
 
 
@@ -88,6 +89,7 @@ a {
 
 h1 {
     font-size: 2em;
+    font-family: var(--display);
     color: var(--green);
     font-weight: 600;
     text-transform: uppercase;
@@ -97,7 +99,11 @@ h1 {
 }
 
 h2 {
-
+    font-size: 3em;
+    font-weight: 300;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: .1em;
 }
 
 h3 {
