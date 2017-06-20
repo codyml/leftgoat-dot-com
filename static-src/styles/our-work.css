@@ -1,0 +1,28 @@
+/*
+*   Looking For Our Work styles
+*/
+
+#our-work {
+
+    display: flex;
+    align-items: center;
+
+    & .left {
+        flex-grow: 1;
+        margin-right: 1em;
+    }
+
+    & h1 {
+        margin-bottom: .5em;
+    }
+
+    & p {
+        color: var(--green);
+        max-width: none;
+    }
+
+    & .contact-button {
+        flex-basis: 25%;
+    }
+
+}

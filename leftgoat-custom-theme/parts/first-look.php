@@ -20,7 +20,7 @@ $phone_number_without_separators = implode( '', explode( '.', get_field( 'contac
             </div>
             <article class="definition-card column is-offset-1 is-4">
                 <?php echo get_field( 'first_look_definition_card' ); ?>
-                <div class="continue-button is-hidden-tablet">Continue</button>
+                <div class="custom-button continue-button is-hidden-tablet">Continue</button>
             </div>
         </div>
     </div>
