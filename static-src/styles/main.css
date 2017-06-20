@@ -2,33 +2,34 @@
 *   Imports Bulma
 */
 
-@import 'bulma/css/bulma.css';
+@import 'bulma/css/bulma';
 
 
 /*
 *   Imports fonts
 */
 
-@import './fonts.css';
+@import './fonts';
 
 
 /*
 *   Imports shared styles
 */
 
-@import './shared.css';
+@import './shared';
+@import './overlay';
 
 
 /*
 *   Imports page component styles
 */
 
-@import './first-look.css';
-@import './nav-menu.css';
-@import './who-we-are.css';
-@import './services.css';
-@import './the-difference.css';
-@import './our-work.css';
-@import './footer.css';
-@import './team.css';
-@import './contact.css';
+@import './first-look';
+@import './nav-menu';
+@import './who-we-are';
+@import './services';
+@import './the-difference';
+@import './our-work';
+@import './footer';
+@import './team';
+@import './contact';

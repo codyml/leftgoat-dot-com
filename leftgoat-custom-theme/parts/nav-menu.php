@@ -14,7 +14,7 @@ $menu = wp_nav_menu( array(
     <div class="is-hidden-mobile stretchy-container">
         <?php echo $menu; ?>
     </div>
-    <div class="mobile is-hidden-tablet is-hidden">
+    <div class="mobile is-hidden-tablet transition-slide-left">
         <?php echo $menu; ?>
         <a class="open-button">
             <svg viewBox="0 0 32 32">

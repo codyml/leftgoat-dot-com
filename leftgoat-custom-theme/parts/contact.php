@@ -4,7 +4,7 @@ $phone_number_without_separators = implode( '', explode( '.', get_field( 'contac
 
 ?>
 
-<section id="contact">
+<section id="contact" class="transition-slide-right">
     <a class="close-button">
         <svg viewBox="0 0 25 25">
             <line x1="0" y1="0" x2="25" y2="25" />
