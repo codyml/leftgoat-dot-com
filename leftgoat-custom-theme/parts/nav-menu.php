@@ -10,8 +10,8 @@ $menu = wp_nav_menu( array(
 
 ?>
 
-<section id="nav-menu">
-    <div class="fluid-container is-hidden-mobile">
+<section id="nav-menu" class="wide">
+    <div class="is-hidden-mobile fluid-container">
         <?php echo $menu; ?>
     </div>
     <div class="mobile is-hidden-tablet is-hidden">

@@ -6,7 +6,8 @@
     
     position: relative;
     height: calc(100vh - 4em);
-    padding: 0 4em;
+    padding-top: 0;
+    padding-bottom: 0;
     background-size: cover;
     background-position: center;
 
