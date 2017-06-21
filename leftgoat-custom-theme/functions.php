@@ -19,3 +19,10 @@ include_once 'inc/static.php';
 */
 
 include_once 'inc/menus.php';
+
+
+/*
+*   Registers REST endpoints.
+*/
+
+include_once 'inc/rest.php';

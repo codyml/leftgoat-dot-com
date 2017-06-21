@@ -115,8 +115,20 @@
             }
 
             & .submit-button {
+                
                 display: block;
                 margin: 1em;
+            
+                &.submitting,
+                &.submitting:hover {
+                    
+                    cursor: not-allowed;
+                    background-color: #49be9f;
+                    color: white;
+                    opacity: .5;
+                    
+                }
+
             }
 
         }

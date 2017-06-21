@@ -2,3 +2,4 @@
 dev-env
 node_modules
 leftgoat-custom-theme/static
+*.env
