@@ -11,7 +11,7 @@ $menu = wp_nav_menu( array(
 ?>
 
 <section id="nav-menu" class="wide">
-    <div class="is-hidden-mobile stretchy-container">
+    <div class="desktop is-hidden-mobile stretchy-container">
         <?php echo $menu; ?>
     </div>
     <div class="mobile is-hidden-tablet coordinated-overlay-initially-hidden transition-slide-left">

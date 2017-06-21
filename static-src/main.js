@@ -13,6 +13,7 @@ import enableContactFormInteractivity from './scripts/contact'
 import enableTeamBioInteractivity from './scripts/team-bios'
 import enableMobileNavMenu from './scripts/mobile-nav-menu'
 import enableSmoothScrolling from './scripts/smooth-scrolling'
+import enableFloatingNavMenu from './scripts/floating-nav-menu'
 
 
 /*
@@ -25,5 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
     enableTeamBioInteractivity()
     enableMobileNavMenu()
     enableSmoothScrolling()
+    enableFloatingNavMenu()
 
 })
