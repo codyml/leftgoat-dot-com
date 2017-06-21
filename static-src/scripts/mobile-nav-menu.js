@@ -6,7 +6,7 @@ import Overlay from './overlay'
 
 export default () => {
 
-    const element = document.querySelector('#nav-menu .mobile')
+    const element = document.querySelector('#nav-menu-mobile')
     const overlay = new Overlay(element, 'slide-left')
     
     const openLink = element.querySelector('.open-button')

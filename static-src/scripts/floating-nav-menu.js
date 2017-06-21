@@ -12,7 +12,7 @@ const INTERVAL = 100
 
 export default () => {
 
-    const element = document.querySelector('#nav-menu')
+    const element = document.querySelector('#nav-menu-desktop')
     const floatingScrollY = element.offsetTop
 
     const handleScroll = () => {
