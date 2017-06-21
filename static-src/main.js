@@ -14,6 +14,7 @@ import enableTeamBioInteractivity from './scripts/team-bios'
 import enableMobileNavMenu from './scripts/mobile-nav-menu'
 import enableSmoothScrolling from './scripts/smooth-scrolling'
 import enableFloatingNavMenu from './scripts/floating-nav-menu'
+import enableMobileDefinitionCard from './scripts/mobile-definition-card'
 
 
 /*
@@ -44,5 +45,6 @@ window.addEventListener('DOMContentLoaded', () => {
     enableMobileNavMenu()
     enableSmoothScrolling(windowState)
     enableFloatingNavMenu(windowState)
+    enableMobileDefinitionCard(windowState)
 
 })

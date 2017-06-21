@@ -36,6 +36,14 @@ const getTransition = (transition, display) => {
 
         }
 
+        case 'fade': return {
+            
+            initial: [ { opacity: 0 }, { display: 'none', duration: 0 } ],
+            opening: [ { opacity: 1 }, { display, duration } ],
+            closing: [ { opacity: 0 }, { display: 'none', duration } ],
+
+        }
+
     }
 
 }
