@@ -145,4 +145,17 @@
 
     }
 
+    & .lazy-load {
+
+        transform: translateX(25%);
+        opacity: 0;
+        transition: transform .25s, opacity .5s;
+
+        &.lazy-load-finished {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+    }
+
 }

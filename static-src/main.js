@@ -15,6 +15,7 @@ import enableMobileNavMenu from './scripts/mobile-nav-menu'
 import enableSmoothScrolling from './scripts/smooth-scrolling'
 import enableFloatingNavMenu from './scripts/floating-nav-menu'
 import enableMobileDefinitionCard from './scripts/mobile-definition-card'
+import enableLazyLoading, { enableTypewriterEffect } from './scripts/lazy-loading'
 
 
 /*
@@ -26,7 +27,9 @@ const windowState = { isMobile: false }
 const handleResize = () => {
     
     windowState.isMobile = (window.innerWidth <= 768)
-    windowState.floatingScrollY = document.querySelector('#nav-menu-desktop').offsetTop
+    const navMenuDesktop = document.querySelector('#nav-menu-desktop')
+    navMenuDesktop.classList.remove('floating')
+    windowState.floatingScrollY = navMenuDesktop.offsetTop
 
 }
 
@@ -46,5 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
     enableSmoothScrolling(windowState)
     enableFloatingNavMenu(windowState)
     enableMobileDefinitionCard(windowState)
+    enableTypewriterEffect()
+    enableLazyLoading()
 
 })

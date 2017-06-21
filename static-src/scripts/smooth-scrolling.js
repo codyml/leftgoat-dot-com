@@ -30,7 +30,7 @@ export default windowState => {
             const maxScrollPosition = bodyHeight - window.innerHeight
             
             let target = document.querySelector(anchor)
-            let offset = mobileState.isMobile ? 0 : FLOATING_NAVBAR_SPACE
+            let offset = windowState.isMobile ? 0 : FLOATING_NAVBAR_SPACE
             const duration = 1250
             const easing = 'ease-in-out'
             

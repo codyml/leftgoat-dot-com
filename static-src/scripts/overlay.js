@@ -38,8 +38,7 @@ const getTransition = (transition, display) => {
 
         case 'fade': return {
             
-            initial: [ { opacity: 0 }, { display: 'none', duration: 0 } ],
-            opening: [ { opacity: 1 }, { display, duration } ],
+            opening: [ { opacity: 1 }, { display: 'flex', duration } ],
             closing: [ { opacity: 0 }, { display: 'none', duration } ],
 
         }
@@ -93,7 +92,7 @@ export default class Overlay {
         this.element = element
         this.visible = false
         this.transition = getTransition(transition, element.style.display)
-        Velocity(this.element, ...this.transition.initial)
+        if (this.transition.initial) Velocity(this.element, ...this.transition.initial)
         overlays.push(this)
         
         this.open = this.open.bind(this)

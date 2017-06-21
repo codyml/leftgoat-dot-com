@@ -11,14 +11,14 @@ $phone_number_without_separators = implode( '', explode( '.', get_field( 'contac
     </div>
     <div class="stretchy-container">
         <div class="columns">
-            <div class="introduction column is-offset-1 is-6">
+            <div class="introduction column is-offset-1 is-6 lazy-load">
                 <article><?php echo get_field( 'first_look_content' ); ?></article>
                 <svg class="claw" viewBox="0 0 50 160">
                     <line x1="0" y1="0" x2="0" y2="110"></line>
                     <line x1="0" y1="110" x2="50" y2="160"></line>
                 </svg>
             </div>
-            <article class="definition-card column is-offset-1 is-4">
+            <article class="definition-card column is-offset-1 is-4 lazy-load">
                 <?php echo get_field( 'first_look_definition_card' ); ?>
                 <div class="custom-button continue-button is-hidden-tablet">Continue</button>
             </div>

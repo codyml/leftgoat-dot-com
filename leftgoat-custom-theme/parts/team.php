@@ -8,7 +8,7 @@ $team_members = get_field( 'our_team_members' );
     <div class="stretchy-container">
         <ul>
             <?php foreach ( $team_members as $key => $value ) : ?>
-                <li>
+                <li class="lazy-load">
                     <div class="image" style="background-image: url('<?php echo $value['image']; ?>');"></div>
                     <div class="text">
                         <div class="name"><?php echo $value['name']; ?></div>

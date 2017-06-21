@@ -21,6 +21,7 @@ html,
 body {
     height: 100%;
     overflow: visible;
+    position: relative;
 }
 
 body {

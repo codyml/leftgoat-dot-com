@@ -136,7 +136,7 @@
                 }
 
                 @media (max-width: 768px) {
-                    display: block;
+                    display: none;
                     position: fixed;
                     top: 1em;
                     right: 1em;
@@ -147,6 +147,23 @@
                     background-color: var(--dark-white);
                 }
 
+            }
+
+        }
+
+    }
+
+    @media (min-width: 769px) {
+
+        & .lazy-load {
+
+            transform: scale(1.1);
+            opacity: 0;
+            transition: transform .75s, opacity .5s;
+
+            &.lazy-load-finished {
+                transform: scale(1);
+                opacity: 1;
             }
 
         }

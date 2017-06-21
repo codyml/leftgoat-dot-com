@@ -1,5 +1,5 @@
 <section id="the-difference">
-    <div class="stretchy-container">
+    <article class="stretchy-container lazy-load">
         <?php echo get_field( 'the_left_goat_difference_content' ); ?>
-    </div>
+    </article>
 </section>

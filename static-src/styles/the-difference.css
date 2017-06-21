@@ -9,7 +9,7 @@
     position: relative;
     overflow: hidden;
 
-    &::after {
+    & article::after {
         content: '';
         display: block;
         position: absolute;
@@ -26,6 +26,33 @@
 
     & h1 {
         color: white;
+    }
+
+    & .lazy-load {
+
+        & h1,
+        & p {
+            opacity: 0;
+            transition: opacity .5s;
+        }
+
+        & p {
+            transition: opacity .5s .25s;
+        }
+
+        &.lazy-load-finished h1,
+        &.lazy-load-finished p {
+            opacity: 1;
+        }
+
+        &::after {
+            transition: left .5s .5s;
+        }
+
+        &:not(.lazy-load-finished)::after {
+            left: 100%;
+        }
+
     }
 
 }

@@ -10,12 +10,11 @@ export default windowState => {
 
         const element = document.querySelector('#first-look .definition-card')
         const overlay = new Overlay(element, 'fade')
-        overlay.open()
-        
-        element.classList.add('mobile')
-        
+
         const closeLink = element.querySelector('.continue-button')
         closeLink.addEventListener('click', overlay.close)
+
+        overlay.open()
 
     }
 
