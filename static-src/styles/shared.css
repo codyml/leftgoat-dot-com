@@ -42,10 +42,16 @@ body {
         transition: opacity .5s, visibility 0s .5s;
     }
 
-    &.overlay-open::after {
-        visibility: visible;
-        opacity: .5;
-        transition: opacity .5s;
+    &.overlay-open {
+
+        overflow: hidden;
+
+        &::after {
+            visibility: visible;
+            opacity: .5;
+            transition: opacity .5s;
+        }
+
     }
 
 }

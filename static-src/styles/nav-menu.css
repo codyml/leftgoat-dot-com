@@ -92,7 +92,7 @@
             transition: opacity .25s;
         }
 
-        &.coordinated-overlay-open .open-button {
+        @nest body.overlay-open & .open-button {
             opacity: 0;
         }
 

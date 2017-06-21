@@ -113,6 +113,10 @@
                 background-color: var(--green);
                 color: white;
 
+                @media (max-width: 600px) {
+                    justify-content: flex-start;
+                }
+
                 & .close-button {
                     width: 2.5em;
                     height: 2.5em;
