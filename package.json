@@ -5,7 +5,8 @@
   "main": "main.js",
   "repository": "https://github.com/codyml/leftgoat-dot-com-new",
   "scripts": {
-    "dev-watch": "webpack -d --watch --progress --colors"
+    "dev-watch": "webpack -d --watch --progress --colors",
+    "prod-build": "webpack -p --progress --colors"
   },
   "author": "Cody M Leff <cody@leftgoat.com>",
   "license": "ISC",
