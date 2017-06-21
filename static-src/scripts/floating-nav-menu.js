@@ -10,14 +10,13 @@ const INTERVAL = 100
 *   removes a CSS class to the nav menu depending on scroll position.
 */
 
-export default () => {
+export default windowState => {
 
     const element = document.querySelector('#nav-menu-desktop')
-    const floatingScrollY = element.offsetTop
 
     const handleScroll = () => {
 
-        const floating = window.scrollY > floatingScrollY
+        const floating = window.scrollY > windowState.floatingScrollY
         if (floating) element.classList.add('floating')
         else element.classList.remove('floating')
 

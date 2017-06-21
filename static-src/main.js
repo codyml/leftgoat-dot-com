@@ -21,15 +21,15 @@ import enableFloatingNavMenu from './scripts/floating-nav-menu'
 */
 
 import throttle from 'lodash.throttle'
-const mobileState = { isMobile: false }
+const windowState = { isMobile: false }
 const handleResize = () => {
     
-    mobileState.isMobile = (window.innerWidth <= 768)
+    windowState.isMobile = (window.innerWidth <= 768)
+    windowState.floatingScrollY = document.querySelector('#nav-menu-desktop').offsetTop
 
 }
 
 window.addEventListener('resize', throttle(handleResize, { trailing: true }))
-handleResize()
 
 
 /*
@@ -38,10 +38,11 @@ handleResize()
 
 window.addEventListener('DOMContentLoaded', () => {
 
+    handleResize()
     enableContactFormInteractivity()
     enableTeamBioInteractivity()
     enableMobileNavMenu()
-    enableSmoothScrolling(mobileState)
-    enableFloatingNavMenu()
+    enableSmoothScrolling(windowState)
+    enableFloatingNavMenu(windowState)
 
 })
