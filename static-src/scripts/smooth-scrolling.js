@@ -1,8 +1,9 @@
 /*
-*   Imports
+*   Imports & constants
 */
 
 import Velocity from 'velocity-animate'
+const FLOATING_NAVBAR_SPACE = -80;
 
 
 /*
@@ -10,7 +11,7 @@ import Velocity from 'velocity-animate'
 *   then animating the scroll to their position.
 */
 
-export default () => {
+export default mobileState => {
 
     const anchorLinks = [ ...document.querySelectorAll('a[href^="#"]:not([href="#contact"])') ]
     anchorLinks.forEach(anchorLink => {
@@ -29,7 +30,7 @@ export default () => {
             const maxScrollPosition = bodyHeight - window.innerHeight
             
             let target = document.querySelector(anchor)
-            let offset = 0
+            let offset = mobileState.isMobile ? 0 : FLOATING_NAVBAR_SPACE
             const duration = 1250
             const easing = 'ease-in-out'
             
