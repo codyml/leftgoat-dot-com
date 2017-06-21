@@ -7,7 +7,7 @@ import Overlay from './overlay'
 export default () => {
 
     const element = document.querySelector('#contact')
-    const overlay = new Overlay(element)
+    const overlay = new Overlay(element, 'slide-right')
     
     const openLinks = [ ...document.querySelectorAll('[href="#contact"]') ]
     openLinks.forEach(link => link.addEventListener('click', overlay.open))

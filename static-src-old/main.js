@@ -16,14 +16,14 @@ import '!file?name=icon512.png!./images/icon512.png'
 import './styles/main.scss'
 
 //  Components
-// import * as smallScreenGoatNoun from './components/small-screen-goat-noun.js'
-// import * as smallScreenNavbar from './components/small-screen-navbar.js'
-// import * as floatingNavbar from './components/floating-navbar.js'
-// import * as anchorLinkScrolling from './components/anchor-link-scrolling.js'
-// import enableContactForm from './components/contact-form.js'
-// import enableBioOverlays from './components/bio-overlays.js'
+import * as smallScreenGoatNoun from './components/small-screen-goat-noun.js'
+import * as smallScreenNavbar from './components/small-screen-navbar.js'
+import * as floatingNavbar from './components/floating-navbar.js'
+import * as anchorLinkScrolling from './components/anchor-link-scrolling.js'
+import enableContactForm from './components/contact-form.js'
+import enableBioOverlays from './components/bio-overlays.js'
 import enableLazyLoading from './components/lazy-loading.js'
-// import enableResizeToFit from './components/resize-to-fit.js'
+import enableResizeToFit from './components/resize-to-fit.js'
 
 //  Fonts
 import WebFont from 'webfontloader'
@@ -57,19 +57,19 @@ function enableInteractivity() {
 
     /*  Resizes once, then listens for resize event to enable
     *   small-screen navbar if indicated.  */
-    // resizeHandler()
-    // window.addEventListener('resize', resizeHandler)
+    resizeHandler()
+    window.addEventListener('resize', resizeHandler)
 
     /*  Enables the small-screen goat noun overlay if the device
     *   initially loads the page with a width below the threshold.  */
-    // if (document.body.offsetWidth < SMALL_SCREEN_THRESHOLD) smallScreenGoatNoun.show()
+    if (document.body.offsetWidth < SMALL_SCREEN_THRESHOLD) smallScreenGoatNoun.show()
 
     //  Enables other interactive features
-    // anchorLinkScrolling.enable()
-    // enableContactForm()
-    // enableBioOverlays()
+    anchorLinkScrolling.enable()
+    enableContactForm()
+    enableBioOverlays()
     enableLazyLoading()
-    // enableResizeToFit()
+    enableResizeToFit()
 
 }
 

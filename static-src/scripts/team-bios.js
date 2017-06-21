@@ -9,7 +9,7 @@ export default () => {
     const elements = [ ...document.querySelectorAll('.bio-overlay') ]
     elements.forEach((element) => {
 
-        const overlay = new Overlay(element)
+        const overlay = new Overlay(element, 'slide-right')
         
         const openLink = element.parentElement
         openLink.addEventListener('click', overlay.open)

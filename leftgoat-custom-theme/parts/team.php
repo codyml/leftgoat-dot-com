@@ -14,7 +14,7 @@ $team_members = get_field( 'our_team_members' );
                         <div class="name"><?php echo $value['name']; ?></div>
                         <div class="position"><?php echo $value['position']; ?></div>
                     </div>
-                    <div class="bio-overlay transition-slide-right">
+                    <div class="bio-overlay">
                         <a class="close-button">
                             <svg viewBox="0 0 25 25">
                                 <line x1="0" y1="0" x2="25" y2="25" />

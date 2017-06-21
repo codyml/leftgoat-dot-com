@@ -9,10 +9,10 @@ import './styles/main.css'
 *   Imports JS components for bundling.
 */
 
-// import beginLoadingSequence from './scripts/loading'
-import enableContactFormInteractivity from './scripts/contact-form'
+import enableContactFormInteractivity from './scripts/contact'
 import enableTeamBioInteractivity from './scripts/team-bios'
 import enableMobileNavMenu from './scripts/mobile-nav-menu'
+import enableSmoothScrolling from './scripts/smooth-scrolling'
 
 
 /*
@@ -21,9 +21,9 @@ import enableMobileNavMenu from './scripts/mobile-nav-menu'
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    // beginLoadingSequence()
     enableContactFormInteractivity()
     enableTeamBioInteractivity()
     enableMobileNavMenu()
+    enableSmoothScrolling()
 
 })

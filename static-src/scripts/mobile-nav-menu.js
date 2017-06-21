@@ -7,12 +7,12 @@ import Overlay from './overlay'
 export default () => {
 
     const element = document.querySelector('#nav-menu .mobile')
-    const overlay = new Overlay(element)
+    const overlay = new Overlay(element, 'slide-left')
     
     const openLink = element.querySelector('.open-button')
     openLink.addEventListener('click', overlay.open)
     
-    const closeLinks = [ ...element.querySelectorAll('.close-button, ul a') ]
+    const closeLinks = [ ...element.querySelectorAll('.close-button, ul a:not([href="#contact"])') ]
     closeLinks.forEach(link => link.addEventListener('click', e => {
 
         e.stopPropagation()

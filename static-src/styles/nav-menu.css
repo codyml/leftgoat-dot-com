@@ -89,7 +89,7 @@
             box-shadow: inset 0 0 5px var(--medium-grey);
             background-color: var(--green);
             opacity: 1;
-            transition: opacity var(--duration);
+            transition: opacity .25s;
         }
 
         &.coordinated-overlay-open .open-button {
