@@ -12,38 +12,42 @@ const REFRESH_INTERVAL = 500
 */
 
 const TRIGGER_OFFSET = 100
+let nodesToLoad = [ ...document.querySelectorAll('.lazy-load') ]
 
 
 /*
-*   Attaches a listener to the scroll event that checks if the new
-*   scroll position warrants lazy-loading a certain page section.
+*   Checks if the new scroll position warrants lazy-loading a certain
+*   page section.
 */
 
-export default () => {
+const scrollHandler = () => {
 
-    let nodesToLoad = [ ...document.querySelectorAll('.lazy-load') ]
+    if (nodesToLoad.length > 0) {
 
-    const scrollHandler = () => {
+        nodesToLoad = nodesToLoad.filter(node => {
 
-        if (nodesToLoad.length > 0) {
+            if (node.getBoundingClientRect().top < window.innerHeight - TRIGGER_OFFSET) {
 
-            nodesToLoad = nodesToLoad.filter(node => {
+                node.classList.add('lazy-load-finished')
+                return false
 
-                if (node.getBoundingClientRect().top < window.innerHeight - TRIGGER_OFFSET) {
+            } else return true
 
-                    node.classList.add('lazy-load-finished')
-                    return false
+        })
 
-                } else return true
+    } else window.removeEventListener('scroll', scrollHandler)
 
-            })
+}
 
-        } else window.removeEventListener('scroll', scrollHandler)
 
-    }
+/*
+*   Starts lazy loading
+*/
+
+export const startLazyLoading = () => {
 
     window.addEventListener('scroll', throttle(scrollHandler, REFRESH_INTERVAL, { trailing: true }))
-    setTimeout(scrollHandler, 1000)
+    scrollHandler()
 
 }
 

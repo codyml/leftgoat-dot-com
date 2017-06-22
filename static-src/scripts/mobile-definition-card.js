@@ -4,7 +4,7 @@
 
 import Overlay from './overlay'
 
-export default windowState => {
+export const enable = windowState => {
 
     if (windowState.isMobile) {
 

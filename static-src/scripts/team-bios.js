@@ -4,7 +4,7 @@
 
 import Overlay from './overlay'
 
-export default () => {
+export const enable = () => {
 
     const elements = [ ...document.querySelectorAll('.bio-overlay') ]
     elements.forEach((element) => {

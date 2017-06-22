@@ -10,7 +10,7 @@ const INTERVAL = 100
 *   removes a CSS class to the nav menu depending on scroll position.
 */
 
-export default windowState => {
+export const enable = windowState => {
 
     const element = document.querySelector('#nav-menu-desktop')
 

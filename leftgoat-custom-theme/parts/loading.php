@@ -1,5 +1,7 @@
 <section id="loading">
-    <h2>Left Goat</h2>
-    <div class="logo"></div>
-    <p>Loading</p>
+    <div class="name"></div>
+    <div class="logo">
+        <div class="cover"></div>
+    </div>
+    <div class="loading-text"></div>
 </section>

@@ -28,7 +28,7 @@
                 padding-bottom: 100%;
                 background-size: cover;
                 background-position: center;
-                transition: opacity .2s;
+                transition: transform .25s, opacity .5s;
             }
 
             &::after {
@@ -147,11 +147,13 @@
 
     & .lazy-load {
 
-        transform: translateX(25%);
-        opacity: 0;
-        transition: transform .25s, opacity .5s;
+        & > :not(.bio-overlay):not(::after) {
+            transform: translateX(250px);
+            opacity: 0;
+            transition: transform .25s, opacity .5s;
+        }
 
-        &.lazy-load-finished {
+        &.lazy-load-finished > :not(.bio-overlay):not(::after) {
             transform: translateX(0);
             opacity: 1;
         }

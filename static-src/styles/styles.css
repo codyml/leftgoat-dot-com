@@ -6,13 +6,6 @@
 
 
 /*
-*   Imports fonts
-*/
-
-@import './fonts';
-
-
-/*
 *   Imports shared styles
 */
 
@@ -23,7 +16,6 @@
 *   Imports page component styles
 */
 
-/*  @import './loading';  */
 @import './first-look';
 @import './nav-menu';
 @import './who-we-are';

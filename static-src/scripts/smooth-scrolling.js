@@ -11,7 +11,7 @@ const FLOATING_NAVBAR_SPACE = -80;
 *   then animating the scroll to their position.
 */
 
-export default windowState => {
+export const enable = windowState => {
 
     const anchorLinks = [ ...document.querySelectorAll('a[href^="#"]:not([href="#contact"])') ]
     anchorLinks.forEach(anchorLink => {

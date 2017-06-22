@@ -18,7 +18,7 @@ module.exports = {
         rules: [
             
             {
-                test: /\.css$/,
+                test: /loading.css$/,
                 use: ExtractTextPlugin.extract({
                     use: [
                         {
@@ -28,6 +28,17 @@ module.exports = {
                         'postcss-loader',
                     ],
                 }),
+            },
+            {
+                test: /styles.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 },
+                    },
+                    'postcss-loader',
+                ],
             },
             {
                 test: /\.js$/,
