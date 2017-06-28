@@ -27,7 +27,7 @@ export default async () => {
                 container.classList.add('done')
                 await wait(500)
                 document.documentElement.classList.add('loading-done')
-                await wait(500)
+                await wait(1000)
                 container.remove()
                 startLazyLoading()
 
@@ -69,10 +69,11 @@ const loadFonts = async progressState => {
             
         google: {
             families: [
-                'Bungee Outline',
-                'Libre Baskerville:400i',
                 'Montserrat:300,400,600,700',
             ],
+        },
+        typekit: {
+            id: 'lpq7mwc'
         },
         active: resolve,
     

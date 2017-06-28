@@ -84,9 +84,9 @@ html {
                 height: 10em;
                 margin-top: 3em;
                 margin-bottom: 4em;
-                background-image: url('../images/logo-without-goat.svg');
+                background-image: url('../images/logo-with-goat.svg');
                 opacity: .75;
-                transition: background-image .2s, opacity .2s;
+                transition: opacity .2s;
 
                 & .cover {
                     display: block;
@@ -103,7 +103,6 @@ html {
 
             &.done .logo {
 
-                background-image: url('../images/logo-with-goat.svg');
                 opacity: 1;
 
                 &.cover {
