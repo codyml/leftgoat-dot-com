@@ -1,1 +1,0 @@
-web: support/heroku/start.sh

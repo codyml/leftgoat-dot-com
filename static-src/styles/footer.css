@@ -1,0 +1,11 @@
+/*
+*   Footer styles
+*/
+
+footer {
+    text-align: center;
+    font-size: .8em;
+    letter-spacing: .1em;
+    border-top: 1px solid #eee;
+    padding: 3em 0;
+}
