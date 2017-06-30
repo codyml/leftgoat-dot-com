@@ -1,0 +1,94 @@
+/*
+*   Services styles
+*/
+
+.above-services-banner {
+    padding-bottom: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+#services {
+    
+    & ul {
+        
+        margin: 3em 2em;
+        color: var(--green);
+        font-size: .9em;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+    
+        & li {
+            
+            margin: 1em 0;
+            display: flex;
+            align-items: center;
+        
+            &::before {
+                content: '•';
+                margin-right: 1em;
+                margin-bottom: .05em;
+            }
+
+        }
+
+    }
+
+    & .lazy-load {
+
+        & h1,
+        & p {
+            opacity: 0;
+            transition: opacity .5s;
+        }
+
+        &.lazy-load-finished h1,
+        &.lazy-load-finished p {
+            opacity: 1;
+        }
+
+        & li {
+            transform: translateX(25%);
+            opacity: 0;
+        }
+
+        &.lazy-load-finished li {
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+        & li:nth-child(1) {
+            transition: transform .5s .25s, opacity .5s .25s;
+        }
+
+        & li:nth-child(2) {
+            transition: transform .5s .5s, opacity .5s .5s;
+        }
+
+        & li:nth-child(3) {
+            transition: transform .5s .75s, opacity .5s .75s;
+        }
+
+        & li:nth-child(4) {
+            transition: transform .5s 1s, opacity .5s 1s;
+        }
+
+        & li:nth-child(5) {
+            transition: transform .5s 1.25s, opacity .5s 1.25s;
+        }
+
+        & li:nth-child(6) {
+            transition: transform .5s 1.5s, opacity .5s 1.5s;
+        }
+
+        & li:nth-child(7) {
+            transition: transform .5s 1.75s, opacity .5s 1.75s;
+        }
+
+        & li:nth-child(8) {
+            transition: transform .5s 2s, opacity .5s 2s;
+        }
+
+    }
+
+}

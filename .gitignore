@@ -1,10 +1,5 @@
 .DS_Store
-.vagrant
+dev-env
 node_modules
-vendor
-.env
-local.log
-/db.sh
-dev-ssl.cert
-dev-ssl.key
-static-dist
+leftgoat-custom-theme/static
+*.env

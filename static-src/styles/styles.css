@@ -1,0 +1,27 @@
+/*
+*   Imports Bulma
+*/
+
+@import 'bulma/css/bulma';
+
+
+/*
+*   Imports shared styles
+*/
+
+@import './shared';
+
+
+/*
+*   Imports page component styles
+*/
+
+@import './first-look';
+@import './nav-menu';
+@import './who-we-are';
+@import './services';
+@import './the-difference';
+@import './our-work';
+@import './footer';
+@import './team';
+@import './contact';
