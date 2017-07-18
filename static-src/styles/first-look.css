@@ -20,7 +20,7 @@
         left: 0;
         height: 3rem;
         padding: 0 10em;
-        transform: translateX(-50%) translateY(-50%) rotate(-90deg) translateY(50%);
+        transform: translateX(-50%) translateY(-50%) rotate(-90deg) translateY(50%) translateZ(0);
         text-shadow: 0 0 2px black;
         border-bottom: 0.5px solid white;
         font-size: .8em;
