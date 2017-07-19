@@ -26,3 +26,10 @@ include_once 'inc/menus.php';
 */
 
 include_once 'inc/rest.php';
+
+
+/*
+*   Declares functions for retrieving analytic tracking code.
+*/
+
+include_once 'inc/analytics.php';
