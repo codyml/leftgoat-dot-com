@@ -127,6 +127,62 @@
                 transition: opacity 0s 2s;
             }
 
+            &:nth-child(22) {
+                transition: opacity 0s 2.1s;
+            }
+
+            &:nth-child(23) {
+                transition: opacity 0s 2.2s;
+            }
+
+            &:nth-child(24) {
+                transition: opacity 0s 2.3s;
+            }
+
+            &:nth-child(25) {
+                transition: opacity 0s 2.4s;
+            }
+
+            &:nth-child(26) {
+                transition: opacity 0s 2.5s;
+            }
+
+            &:nth-child(27) {
+                transition: opacity 0s 2.6s;
+            }
+
+            &:nth-child(28) {
+                transition: opacity 0s 2.7s;
+            }
+
+            &:nth-child(29) {
+                transition: opacity 0s 2.8s;
+            }
+
+            &:nth-child(30) {
+                transition: opacity 0s 2.9s;
+            }
+
+            &:nth-child(31) {
+                transition: opacity 0s 3.0s;
+            }
+
+            &:nth-child(32) {
+                transition: opacity 0s 3.1s;
+            }
+
+            &:nth-child(33) {
+                transition: opacity 0s 3.2s;
+            }
+
+            &:nth-child(34) {
+                transition: opacity 0s 3.4s;
+            }
+
+            &:nth-child(35) {
+                transition: opacity 0s 3.5s;
+            }
+
         }
 
         &.lazy-load-finished h1.typewriter-effect span {
