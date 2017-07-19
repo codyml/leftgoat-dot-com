@@ -28,7 +28,6 @@
                 padding-bottom: 100%;
                 background-size: cover;
                 background-position: center;
-                transition: transform .25s, opacity .5s;
             }
 
             &::after {
@@ -64,7 +63,7 @@
             &:hover {
 
                 & .image {
-                    opacity: .25;
+                    opacity: .25 !important;
                 }
 
                 &::after {
@@ -147,13 +146,15 @@
 
     & .lazy-load {
 
-        & > :not(.bio-overlay):not(::after) {
+        & .image,
+        & .text {
             transform: translateX(250px);
             opacity: 0;
             transition: transform .25s, opacity .5s;
         }
 
-        &.lazy-load-finished > :not(.bio-overlay):not(::after) {
+        &.lazy-load-finished .image,
+        &.lazy-load-finished .text {
             transform: translateX(0);
             opacity: 1;
         }
